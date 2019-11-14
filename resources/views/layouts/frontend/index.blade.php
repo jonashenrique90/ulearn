@@ -11,12 +11,12 @@
         <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/css/fancybox.css') }}">
-        
+
         <link rel="stylesheet" href="{{ asset('frontend/css/font-awesome.css') }}">
 
         <link rel="stylesheet" href="{{ asset('backend/fonts/web-icons/web-icons.min599c.css?v4.0.2') }}">
         <link rel="stylesheet" href="{{ asset('backend/vendor/toastr/toastr.min599c.css?v4.0.2') }}">
-        
+
     </head>
     <body>
     <div class="se-pre-con"></div>
@@ -31,7 +31,7 @@
             <div class="col-md-3 col-lg-6 col-xl-6 d-none d-md-block">
                 <div class="dropdown float-left" >
                   <span id="dropdownMenuButton" data-toggle="dropdown">Categories &nbsp;<i class="fa fa-caret-down"></i></span>
-                    <?php 
+                    <?php
                         $categories = SiteHelpers::active_categories();
                     ?>
                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -53,13 +53,13 @@
 
             <div class="col-6 col-sm-3 col-md-3 col-lg-2 col-xl-2">
                 @guest
-                <a class="btn btn-learna" href="{{ route('login') }}">Login / Sign Up</a>
+                <a class="btn btn-learna" href="{{ route('login') }}">Acessar / Registrar</a>
                 @else
                 <div class="dropdown float-xl-left float-sm-right float-right">
                   <span id="dropdownMenuButtonRight" data-toggle="dropdown">{{ Auth::user()->first_name }} &nbsp;<i class="fa fa-caret-down"></i></span>
-                    
+
                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButtonRight">
-                    
+
                     @if(Auth::user()->hasRole('instructor'))
                     <a class="dropdown-item" href="{{ route('instructor.dashboard') }}" >
                         <i class="fa fa-sign-out-alt"></i> Instructor
@@ -73,7 +73,7 @@
                     <a class="dropdown-item" href="{{ route('logOut') }}" >
                         <i class="fa fa-sign-out-alt"></i> Logout
                     </a>
-                    
+
                   </div>
                 </div>
 
@@ -84,7 +84,7 @@
 
     <div id="sidebar">
         <ul>
-           <li><a href="javascript:void(0)" class="sidebar-title">Categories</a></li>
+           <li><a href="javascript:void(0)" class="sidebar-title">Categorias</a></li>
            @foreach ($categories as $category)
            <li>
                 <a href="{{ $category->slug }}">
@@ -104,29 +104,29 @@
                 <ul>
                     <li class="mb-1"><b>Quick Links</b></li>
                     <li><a href="{{ route('home') }}">Home Page</a></li>
-                    <li><a href="{{ route('course.list') }}">Courses List</a></li>
-                    <li><a href="{{ route('instructor.list') }}">Instructors List</a></li>
-                    <li><a href="{{ route('blogs') }}">Blogs List</a></li>
+                    <li><a href="{{ route('course.list') }}">Lista de Cursos</a></li>
+                    <li><a href="{{ route('instructor.list') }}">Lista de Instrutores</a></li>
+                    <li><a href="{{ route('blogs') }}">Blog</a></li>
                 </ul>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 col-6 mt-3">
                 <ul>
                     <li class="mb-1"><b>Resources</b></li>
-                    <li><a href="{{ route('page.about') }}">About Us</a></li>
-                    <li><a href="{{ route('page.contact') }}">Contact Us</a></li>
-                    <li><a href="{{ route('register') }}">Register Page</a></li>
-                    <li><a href="{{ route('login') }}">Login Page</a></li>
+                    <li><a href="{{ route('page.about') }}">Quem Somos</a></li>
+                    <li><a href="{{ route('page.contact') }}">Contato</a></li>
+                    <li><a href="{{ route('register') }}">Registrar-se</a></li>
+                    <li><a href="{{ route('login') }}">Login</a></li>
                 </ul>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 mt-3 d-none d-sm-block">
                 <ul>
-                    <li class="mb-1"><b>Top Categories</b></li>
+                    <li class="mb-1"><b>Top Categorias</b></li>
                     @foreach ($categories as $category)
                         @if($loop->iteration <= 4)
                             <li><a href="{{ route('course.list','category_id[]='.$category->id) }}">{{ $category->name}}</a></li>
                         @endif
                     @endforeach
-                    
+
                 </ul>
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12 text-center mt-4">
@@ -148,7 +148,7 @@
             <h5 class="col-12 modal-title text-center bi-header-seperator-head">Become an Instructor</h5>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-           
+
         <div class="becomeInstructorForm">
            <form id="becomeInstructorForm" class="form-horizontal" method="POST" action="{{ route('become.instructor') }}">
             {{ csrf_field() }}
@@ -202,11 +202,11 @@
     <script src="{{ asset('frontend/js/fancybox.min.js') }}"></script>
     <script src="{{ asset('frontend/js/modernizr.js') }}"></script>
     <script src="{{ asset('frontend/js/jquery.validate.js') }}"></script>
-    
+
     <!-- Toastr -->
     <script src="{{ asset('backend/vendor/toastr/toastr.min599c.js?v4.0.2') }}"></script>
 
-    
+
 
     <script>
     $(window).on("load", function (e){
@@ -216,13 +216,13 @@
     </script>
     <script type="text/javascript">
         $(document).ready(function()
-        {   
+        {
             /* Delete record */
             $('.delete-record').click(function(event)
             {
                 var url = $(this).attr('href');
                 event.preventDefault();
-                
+
                 if(confirm('Are you sure want to delete this record?'))
                 {
                     window.location.href = url;
@@ -251,7 +251,7 @@
             $('.mobile-nav').click(function()
             {
                 $('#sidebar').toggleClass('active');
-                
+
                 $(this).toggleClass('fa-bars');
                 $(this).toggleClass('fa-times');
             });

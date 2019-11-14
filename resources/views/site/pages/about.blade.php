@@ -5,23 +5,23 @@
         <!-- banner start -->
         <div class="subpage-slide-blue">
             <div class="container">
-                <h1>About</h1>
+                <h1>Sobre</h1>
             </div>
         </div>
         <!-- banner end -->
-        
+
         <!-- breadcrumb start -->
             <div class="breadcrumb-container">
                 <div class="container">
                   <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">About</li>
+                    <li class="breadcrumb-item active" aria-current="page">Sobre</li>
                   </ol>
                 </div>
             </div>
-        
+
         <!-- breadcrumb end -->
-        
+
         {!! Sitehelpers::get_option('pageAbout', 'content') !!}
 @endsection
 

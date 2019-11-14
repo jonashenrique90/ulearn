@@ -14,10 +14,10 @@
         </div>
         <!-- banner end -->
 
-        <?php 
-            $tabs = array('latestTab' => 'Latest Courses',
-                          'freeTab' => 'Free Courses',
-                          'discountTab' => 'Discount Courses',
+        <?php
+            $tabs = array('latestTab' => 'Novos Cursos',
+                          'freeTab' => 'Cursos Grátis',
+                          'discountTab' => 'Descontos',
                         );
         ?>
         <nav class="clearfix secondary-nav seperator-head">
@@ -38,13 +38,13 @@
              <div class="row">
                @foreach(${$tab_key.'_courses'} as $course)
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                        
+
                         <div class="course-block mx-auto">
                             <a href="{{ route('course.view', $course->course_slug) }}">
                                 <main>
                                     <img src="@if(Storage::exists($course->thumb_image)){{ Storage::url($course->thumb_image) }}@else{{ asset('backend/assets/images/course_detail_thumb.jpg') }}@endif">
                                     <div class="col-md-12"><h6 class="course-title">{{ $course->course_title }}</h6></div>
-                                    
+
                                     <div class="instructor-clist">
                                         <div class="col-md-12">
                                             <i class="fa fa-chalkboard-teacher"></i>&nbsp;
@@ -67,9 +67,9 @@
                                         </div>
                                     </div>
                                 </footer>
-                            </a>    
+                            </a>
                         </div>
-                        
+
                     </div>
                 @endforeach
             </div>
@@ -103,13 +103,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center seperator-head mt-3">
-                        <h3>Our Instructors</h3>
+                        <h3>Nossos Instrutores</h3>
                         <p class="mt-3">{{ Sitehelpers::get_option('pageHome', 'instructor_text') }}</p>
                     </div>
                 </div>
-                
+
                 <div class="row mt-4 mb-5">
-                    @foreach ($instructors as $instructor) 
+                    @foreach ($instructors as $instructor)
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                         <div class="instructor-box mx-auto text-center">
                         <a href="{{ route('instructor.view', $instructor->instructor_slug) }}">

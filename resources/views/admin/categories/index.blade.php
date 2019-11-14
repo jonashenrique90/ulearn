@@ -15,7 +15,7 @@
             <div class="panel-title">
               <a href="{{ route('admin.categoryForm') }}" class="btn btn-success btn-sm"><i class="icon wb-plus" aria-hidden="true"></i> Add Category</a>
             </div>
-          
+
           <div class="panel-actions">
           <form method="GET" action="{{ route('admin.categories') }}">
               <div class="input-group">
@@ -28,17 +28,17 @@
           </form>
           </div>
         </div>
-        
+
         <div class="panel-body">
           <table class="table table-hover table-striped w-full">
             <thead>
               <tr>
-                <th>Sl.no</th>
-                <th>Icon</th>
+                <th>#</th>
+                <th>Ícone</th>
                 <th>Category Name</th>
                 <th>Slug</th>
                 <th>Status</th>
-                <th>Actions</th>
+                <th>Ações</th>
               </tr>
             </thead>
             <tbody>
@@ -68,12 +68,12 @@
               @endforeach
             </tbody>
           </table>
-          
+
           <div class="float-right">
             {{ $categories->appends(['search' => Request::input('search')])->links() }}
           </div>
-          
-          
+
+
         </div>
       </div>
       <!-- End Panel Basic -->
@@ -84,7 +84,7 @@
 @section('javascript')
 <script type="text/javascript">
     $(document).ready(function()
-    { 
+    {
 
     });
 </script>

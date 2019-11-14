@@ -48,14 +48,14 @@ class Course extends Model
               ->leftJoin('course_files', 'course_files.id', '=', 'curriculum_lectures_quiz.media')
               ->select('curriculum_sections.section_id',
                 'curriculum_lectures_quiz.lecture_quiz_id',
-                'curriculum_sections.title as s_title', 
+                'curriculum_sections.title as s_title',
                 'curriculum_lectures_quiz.title as l_title')
               ->where('curriculum_sections.course_id', '=', $id)
               ->where("curriculum_lectures_quiz.publish",'=','1')
               ->orderBy('curriculum_sections.sort_order', 'asc')
               ->orderBy('curriculum_lectures_quiz.sort_order', 'asc')
               ->get()->toArray();
-        
+
 
         $lectures_array = array();
         $sections_array = array();
@@ -72,20 +72,20 @@ class Course extends Model
                 $section['number'] = $s_number;
                 $section['is_section'] = true;
 
-                array_push($lectures_array, $section);    
-            } 
+                array_push($lectures_array, $section);
+            }
 
             array_push($sections_array, $lecture->section_id);
 
             $lecture->is_section = false;
             $lecture->number = $l_number;
             $lecture->lecture_quiz_id = $lecture->lecture_quiz_id;
-            
+
             $lecture->url = SiteHelpers::encrypt_decrypt($lecture->lecture_quiz_id);
             array_push($lectures_array, (array) $lecture);
         }
         $return['sections'] = $lectures_array;
-        
+
         return $return;
     }
 
@@ -96,10 +96,10 @@ class Course extends Model
               ->leftJoin('course_videos', 'course_videos.id', '=', 'curriculum_lectures_quiz.media')
               ->leftJoin('course_files', 'course_files.id', '=', 'curriculum_lectures_quiz.media')
               ->select('curriculum_sections.section_id',
-              	'curriculum_sections.title as s_title', 
+              	'curriculum_sections.title as s_title',
                 'curriculum_lectures_quiz.lecture_quiz_id',
               	'curriculum_lectures_quiz.title as l_title',
-              	'curriculum_sections.sort_order as s_sort_order', 
+              	'curriculum_sections.sort_order as s_sort_order',
               	'curriculum_lectures_quiz.sort_order as l_sort_order',
                 'curriculum_lectures_quiz.media_type',
                 'course_videos.duration as v_duration',
@@ -108,7 +108,7 @@ class Course extends Model
               ->where("curriculum_lectures_quiz.publish",'=','1')
               ->orderBy('curriculum_sections.sort_order', 'asc')
               ->orderBy('curriculum_lectures_quiz.sort_order', 'asc')
-              ->get(); 
+              ->get();
 
         $return['sections'] = $sections = array();
         $is_curriculum = $videos_count = 0;
@@ -146,40 +146,40 @@ class Course extends Model
 		$userdocuments = array();
 		$userresources = array();
 		$sections = \DB::table('curriculum_sections')->where('course_id', '=', $id)->get();
-		
+
 		if($sections->isEmpty()){	// IF EMPTY, CREATE DEFAULT SECTION AND LECTURE
 			$data['course_id'] = $id;
 			$data['title'] = 'Start Here';
 			$data['sort_order'] = '1';
-			
+
 			$sectionId = $this->insertSectionRow($data , '');
-			
+
 			$ldata['section_id'] = $sectionId;
 			$ldata['title'] = 'Introduction';
 			$ldata['sort_order'] = '1';
 			$ldata['type'] = '0';
-			
+
 			$lectureId = $this->insertLectureQuizRow($ldata , '');
-			
+
 			$sections = \DB::table('curriculum_sections')->where('course_id', '=', $id)->orderBy('sort_order', 'asc')->get();
-			
+
 		}
-		
-		
+
+
 		foreach($sections as $section){
 			$sectionid = $section->section_id;
 			$lecturesquiz[$sectionid] = \DB::table('curriculum_lectures_quiz')->where('section_id', '=', $sectionid)->orderBy('sort_order', 'asc')->get();
-			
+
 			if($lecturesquiz[$sectionid]->isEmpty()){
 				$ldata['section_id'] = $sectionid;
 				$ldata['title'] = 'Introduction';
 				$ldata['sort_order'] = '1';
 				$ldata['type'] = '0';
-				
+
 				$lectureId = $this->insertLectureQuizRow($ldata , '');
 				$lecturesquiz[$sectionid] = \DB::table('curriculum_lectures_quiz')->where('section_id', '=', $sectionid)->orderBy('sort_order', 'asc')->get();
 			}
-			
+
 			foreach($lecturesquiz[$sectionid] as $lecture){
 				$lecture_quiz_id = $lecture->lecture_quiz_id;
 				if($lecture->type == 0){
@@ -194,25 +194,25 @@ class Course extends Model
 				} else {
 					$lecturesquizquestions[$sectionid][$lecture_quiz_id] = \DB::table('curriculum_quiz_questions')->where('quiz_id', '=', $lecture_quiz_id)->orderBy('sort_order', 'asc')->get();
 				}
-				
+
 				if(!is_null($lecture->resources)){
 					$resources = json_decode($lecture->resources,true);
 
-					foreach($resources as $resource){	
-						$lecturesresources[$sectionid][$lecture_quiz_id][] = \DB::table('course_files')->where('id', '=', $resource)->get();					
+					foreach($resources as $resource){
+						$lecturesresources[$sectionid][$lecture_quiz_id][] = \DB::table('course_files')->where('id', '=', $resource)->get();
 					}
 				}
-				
-				
+
+
 				$uservideos = \DB::table('course_videos')->where('uploader_id', '=', $user_id)->get();
 				$useraudios = \DB::table('course_files')->where('uploader_id', '=', $user_id)->whereIn('file_extension', ['mp3', 'wav'])->get();
 				$userpresentation = \DB::table('course_files')->where('uploader_id', '=', $user_id)->whereIn('file_extension', ['pdf'])->whereIn('file_tag', ['curriculum_presentation'])->get();
 				$userdocuments = \DB::table('course_files')->where('uploader_id', '=', $user_id)->whereIn('file_extension', ['pdf'])->whereIn('file_tag', ['curriculum'])->get();
 				$userresources = \DB::table('course_files')->where('uploader_id', '=', $user_id)->whereIn('file_extension', ['pdf', 'doc', 'docx'])->whereIn('file_tag', ['curriculum_resource'])->get();
-				
+
 			}
 		}
-		
+
 		$result['sections'] = $sections;
 		$result['lecturesquiz'] = $lecturesquiz;
 		$result['lecturesquizquestions'] = $lecturesquizquestions;
@@ -223,69 +223,69 @@ class Course extends Model
 		$result['userpresentation'] = $userpresentation;
 		$result['userdocuments'] = $userdocuments;
 		$result['userresources'] = $userresources;
-		
+
 		return $result;
-		
+
     }
-	
-	
+
+
 	public  function insertSectionRow($data,$id){
-	
-       
+
+
        $table = 'curriculum_sections';
 	   $key = 'section_id';
 	    if($id == NULL )
         {
-			 $data['createdOn'] = date("Y-m-d H:i:s");	
-			 $data['updatedOn'] = date("Y-m-d H:i:s");	
+			 $data['createdOn'] = date("Y-m-d H:i:s");
+			 $data['updatedOn'] = date("Y-m-d H:i:s");
 			 $id = \DB::table( $table)->insertGetId($data);
-            
+
         } else {
-            // Update here 
+            // Update here
 			// update created field if any
-			if(isset($data['createdOn'])) unset($data['createdOn']);	
-			if(isset($data['updatedOn'])) $data['updatedOn'] = date("Y-m-d H:i:s");			
+			if(isset($data['createdOn'])) unset($data['createdOn']);
+			if(isset($data['updatedOn'])) $data['updatedOn'] = date("Y-m-d H:i:s");
 			 \DB::table($table)->where($key,$id)->update($data);
-        }    
-        return $id;    
-	}	
-	
+        }
+        return $id;
+	}
+
 	public  function insertLectureQuizRow($data,$id){
-	
+
        $table = 'curriculum_lectures_quiz';
 	   $key = 'lecture_quiz_id';
 	    if($id == NULL )
         {
-			 $data['createdOn'] = date("Y-m-d H:i:s");	
-			 $data['updatedOn'] = date("Y-m-d H:i:s");	
+			 $data['createdOn'] = date("Y-m-d H:i:s");
+			 $data['updatedOn'] = date("Y-m-d H:i:s");
 			 $id = \DB::table( $table)->insertGetId($data);
-            
+
         } else {
-            // Update here 
+            // Update here
 			// update created field if any
-			if(isset($data['createdOn'])) unset($data['createdOn']);	
-			if(isset($data['updatedOn'])) $data['updatedOn'] = date("Y-m-d H:i:s");			
-			 \DB::table($table)->where($key,$id)->update($data);   
-        }    
-        return $id;    
+			if(isset($data['createdOn'])) unset($data['createdOn']);
+			if(isset($data['updatedOn'])) $data['updatedOn'] = date("Y-m-d H:i:s");
+			 \DB::table($table)->where($key,$id)->update($data);
+        }
+        return $id;
 	}
-	
+
 	public static function postSectionDelete($id){
-		
+
 		\DB::table('curriculum_sections')->where('section_id', '=', $id)->delete();
-		
+
 	}
-	
+
 	public static function postLectureQuizDelete($id){
-		
+
 		\DB::table('curriculum_lectures_quiz')->where('lecture_quiz_id', '=', $id)->delete();
-		
+
 	}
-	
+
 	public function insertLectureQuizResourceRow($data,$id){
-	
+
 		$lecturesquiz = \DB::table('curriculum_lectures_quiz')->where('lecture_quiz_id', '=', $id)->get();
-		
+
 		if(!$lecturesquiz->isEmpty() && !is_null($lecturesquiz['0']->resources)){
 			$resources = json_decode($lecturesquiz['0']->resources,true);
 			array_push($resources,$data['resources']);
@@ -295,17 +295,17 @@ class Course extends Model
 		$data['resources'] = json_encode($resources);
 		$this->insertLectureQuizRow($data,$id);
 	}
-	
+
 	public function postLectureResourceDelete($lid,$rid){
-		
+
 		$resfiles = \DB::table('course_files')->where('id', '=', $rid)->get();
-		
+
 		if(!$resfiles->isEmpty()){
-			
+
 			\DB::table('course_files')->where('id', '=', $rid)->delete();
-		
+
 			$lecturesquiz = \DB::table('curriculum_lectures_quiz')->where('lecture_quiz_id', '=', $lid)->get();
-			
+
 			if(!$lecturesquiz->isEmpty() && !is_null($lecturesquiz['0']->resources)){
 				$resources = json_decode($lecturesquiz['0']->resources,true);
 				if(($key = array_search($rid, $resources)) !== false) {
@@ -316,18 +316,18 @@ class Course extends Model
 			$this->insertLectureQuizRow($data,$lid);
 		}
 	}
-	
-	
+
+
 	public function checkDeletePreviousFiles($id){
-	
+
 		$lecturesquiz = \DB::table('curriculum_lectures_quiz')->where('lecture_quiz_id', '=', $id)->get();
-		
+
 		if(!$lecturesquiz->isEmpty() && !is_null($lecturesquiz['0']->media)){
-			
-			$rid = $lecturesquiz['0']->media;			
+
+			$rid = $lecturesquiz['0']->media;
 			if($lecturesquiz['0']->media_type == 0){
 				$resvideos = \DB::table('course_videos')->where('id', '=', $rid)->get();
-				
+
 				if(!$resvideos->isEmpty()){
 					foreach($resvideos as $resfile) {
 						$file_name = 'course/'.$resfile->course_id.'/'.$resfile->video_title.'.'.$resfile->video_type;
@@ -351,7 +351,7 @@ class Course extends Model
 			}
 		}
 	}
-  
+
   public function getcurriculumsection($id=''){
 
     return \DB::table('curriculum_sections')
@@ -409,7 +409,7 @@ class Course extends Model
   }
 
   public function getfirstlecturedetails($cid='')
-  {    
+  {
     $getmediatype = \DB::table("curriculum_sections")
                       ->join('curriculum_lectures_quiz', 'curriculum_lectures_quiz.section_id', '=', 'curriculum_sections.section_id')
                       ->where("curriculum_sections.course_id",'=',$cid)->get();
@@ -431,8 +431,8 @@ class Course extends Model
                       ->where("curriculum_lectures_quiz.media",'=',$mediaid)->get();
 
           }
-     }                      
-    
+     }
+
   }
   public function getFileDetails($id='')
   {
@@ -450,7 +450,7 @@ class Course extends Model
     $section_id = array();
     foreach ($sections as $value) {
        $section_id[] = $value->section_id;
-    } 
+    }
 
     $lectures = \DB::table("curriculum_lectures_quiz")
                   ->select("lecture_quiz_id")
@@ -459,7 +459,7 @@ class Course extends Model
                   ->orderBy('section_id')
                   ->orderBy('sort_order')
                   ->get();
-   
+
     return $lectures;
 
   }
@@ -482,12 +482,12 @@ class Course extends Model
 
     public function getvideoinfo($id='')
 	{
-	   return \DB::table('course_videos')->where('id', '=', $id)->get(); 
+	   return \DB::table('course_videos')->where('id', '=', $id)->get();
 	}
 
 	public function getvideoinfoFirst($id='')
 	{
-	   return \DB::table('course_videos')->where('id', '=', $id)->first(); 
+	   return \DB::table('course_videos')->where('id', '=', $id)->first();
 	}
 
 	public function getcourseid($lid='')
@@ -531,5 +531,5 @@ class Course extends Model
            return \DB::table('course_progress')->insertGetId($dataarray);
          }
     }
-    
+
 }

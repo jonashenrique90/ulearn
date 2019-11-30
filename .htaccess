@@ -23,6 +23,8 @@ RewriteRule ^(frontend|backend|css|js|vendor|storage)/(.*)$ public/$1/$2 [L,NC]
 RewriteCond %{HTTP:Authorization} .
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
+LimitRequestBody 1024000
+
 <IfModule mod_expires.c>
   ExpiresActive On
 

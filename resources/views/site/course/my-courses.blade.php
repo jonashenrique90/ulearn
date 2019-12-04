@@ -5,7 +5,7 @@
         <!-- banner start -->
         <div class="subpage-slide-blue">
             <div class="container">
-                <h1>My Courses</h1>
+                <h1>Meu Curso</h1>
             </div>
         </div>
         <!-- banner end -->
@@ -19,7 +19,7 @@
               </ol>
             </div>
         </div>
-        
+
         <!-- breadcrumb end -->
 
         <!-- course list start -->
@@ -33,11 +33,11 @@
                             <main>
                                 <img src="@if(Storage::exists($course->thumb_image)){{ Storage::url($course->thumb_image) }}@else{{ asset('backend/assets/images/course_detail_thumb.jpg') }}@endif">
                                 <div class="col-md-12"><h6 class="course-title">{{ $course->course_title }}</h6></div>
-                                
+
                                 <div class="instructor-clist">
                                     <div class="col-md-12">
                                         <i class="fa fa-chalkboard-teacher"></i>&nbsp;
-                                        <span>Created by <b>{{ $course->first_name.' '.$course->last_name }}</b></span>
+                                        <span>Instrutor <b>{{ $course->first_name.' '.$course->last_name }}</b></span>
                                     </div>
                                 </div>
                             </main>
@@ -56,7 +56,7 @@
                                     </div>
                                 </div>
                             </footer>
-                        </a>    
+                        </a>
                         </div>
                     </div>
                 @endforeach
@@ -66,14 +66,14 @@
                     <div class="col-12 not-found-col">
                             <span><b>2<span class="blue">0</span>4</b></span>
                             <h3>Sorry! No courses added to your account</h3>
-                            <a href="{{ route('course.list') }}" class="btn btn-ulearn-cview mt-3">Explore Courses</a>
+                            <a href="{{ route('course.list') }}" class="btn btn-ulearn-cview mt-3">Explorar Cursos</a>
                     </div>
                     </div>
                 </article>
-            @endif                             
+            @endif
             </div>
             </div>
-            
+
         </div>
         <!-- course list end -->
 @endsection

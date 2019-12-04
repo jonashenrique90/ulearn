@@ -8,29 +8,29 @@
             <nav class="navbar clearfix secondary-nav pt-0 pb-0 login-page-seperator">
                 <ul class="list mt-0">
                      <li><a href="{{ route('login') }}" class="active">Login</a></li>
-                     <li><a href="{{ route('register') }}">Register</a></li>
+                     <li><a href="{{ route('register') }}">Registrar-se</a></li>
                 </ul>
             </nav>
 
-            <div class="row">
-                <div class="col-xl-6 col-lg-6 col-md-6 vertical-align d-none d-lg-block">
+            <div class="row d-flex justify-content-center">
+                {{-- <div class="col-xl-6 col-lg-6 col-md-6 vertical-align d-none d-lg-block">
                     <img class="img-fluid" src="{{ asset('frontend/img/fimg.png') }}" width="500px" height="500px">
-                </div>
+                </div> --}}
                 <div class="col-xl-6 offset-xl-0 col-lg-6 offset-lg-0 col-md-8 offset-md-2">
                     <div class="rightRegisterForm">
                     <form id="loginForm" class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
                         <div class="p-4">
                             <div class="form-group">
-                                <label>Email ID</label>
-                                <input name="email" type="text" class="form-control form-control-sm" placeholder="Email ID" value="{{ old('email') }}">
+                                <label>Email</label>
+                                <input name="email" type="text" class="form-control form-control-sm" placeholder="Email" value="{{ old('email') }}">
                                 @if ($errors->has('email'))
                                 <label class="error" for="email">{{ $errors->first('email') }}</label>
                                 @endif
-                                
+
                             </div>
                             <div class="form-group">
-                                <label>Password</label>
+                                <label>Senha</label>
                                 <input name="password" type="password" class="form-control form-control-sm" placeholder="Password" value="{{ old('password') }}">
                                 @if ($errors->has('password'))
                                 <label class="error" for="password">{{ $errors->first('password') }}</label>
@@ -40,24 +40,24 @@
                                 <div class="row m-0">
                                     <div class="custom-control custom-checkbox col-6">
                                         <input type="checkbox" class="custom-control-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                        <label class="custom-control-label" for="remember">Remember me</label>
+                                        <label class="custom-control-label" for="remember">Continuar conectado</label>
                                     </div>
                                     <div class="col-6">
-                                        <a href="{{ route('password.request') }}" class="float-right forgot-text">Forgot password?</a>
+                                        <a href="{{ route('password.request') }}" class="float-right forgot-text">Esqueceu sua senha?</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-lg btn-block login-page-button">Login</button>
+                                <button type="submit" class="btn btn-lg btn-block login-page-button">Entrar</button>
                             </div>
 
-                            <div class="hr-container">
+                            {{-- <div class="hr-container">
                                <hr class="hr-inline" align="left">
                                <span class="hr-text"> or </span>
                                <hr class="hr-inline" align="right">
-                            </div>
+                            </div> --}}
 
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <a href="{{ url('login/facebook') }}" class="btn btn-lg btn-block social-btn facebook-btn">
                                     <div class="row">
                                         <div class="col-3">
@@ -70,9 +70,9 @@
                                         </div>
                                     </div>
                                 </a>
-                            </div>
+                            </div> --}}
 
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <a href="{{ url('login/google') }}" class="btn btn-lg btn-block social-btn google-btn">
                                     <div class="row">
                                         <div class="col-3">
@@ -85,7 +85,7 @@
                                         </div>
                                     </div>
                                 </a>
-                            </div>
+                            </div> --}}
 
                         </div>
                         </form>
@@ -115,11 +115,11 @@ $(document).ready(function()
             },
             messages: {
                 email: {
-                    required: 'The email field is required.',
-                    email: 'The email must be a valid email address.'
+                    required: 'Informar email.',
+                    email: 'O email deve ser válido.'
                 },
                 password: {
-                    required: 'The password field is required.'
+                    required: 'Informar senha.'
                 }
             }
         });

@@ -21,16 +21,16 @@
                   </ol>
                 </div>
             </div>
-        
+
         <!-- breadcrumb end -->
-        
-        
+
+
         <article class="container mt-4">
             <div class="row">
                <div class="col-xl-7 offset-xl-3 col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                    <h6 class="underline-heading mb-4">Confirm Purchase</h6>
-                    
-                    
+                    <h6 class="underline-heading mb-4">Confirmação de compra</h6>
+
+
                     <div class="row mb-1">
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-4">
                             <img src="@if(Storage::exists($course->thumb_image)){{ Storage::url($course->thumb_image) }}@else{{ asset('backend/assets/images/course_detail_thumb.jpg') }}@endif" width="120" height="90">
@@ -40,13 +40,13 @@
                             <div class="instructor-clist mb-0 mt-1 d-sm-block d-none">
                                 <div class="ml-1">
                                     <i class="far fa-bookmark"></i>&nbsp;&nbsp;
-                                    <span>Category <b>{{ $course->category->name }}</b></span>
+                                    <span>Categoria <b>{{ $course->category->name }}</b></span>
                                 </div>
                             </div>
                             <div class="instructor-clist mb-0 mt-1">
                                 <div>
                                     <i class="fa fa-chalkboard-teacher"></i>&nbsp;
-                                    <span>Created by <b>{{ $course->instructor->first_name.' '.$course->instructor->last_name }}</b></span>
+                                    <span>Instrutor <b>{{ $course->instructor->first_name.' '.$course->instructor->last_name }}</b></span>
                                 </div>
                             </div>
                             @php $course_price = $course->price == 0.00 ? 'Free' : config('config.default_currency').$course->price; @endphp
@@ -54,7 +54,7 @@
                         </div>
 
                     </div>
-                    
+
                     <div class="col-xl-7 offset-xl-2 col-lg-8 offset-lg-2 col-md-9 offset-md-2 col-sm-9 offset-sm-2 col-11 offset-1">
                     <form method="POST" action="{{ route('payment.form') }}" enctype="multipart/form-data">
                     {{ csrf_field() }}
@@ -72,9 +72,9 @@
                                 <div class="col-9">
                                     <span>
                                     @if($course->price == 0.00)
-                                    Subscribe to the course
+                                    Inscrever-se no curso
                                     @else
-                                    Pay with Paypal Account
+                                    Pague com Paypal
                                     @endif
                                     </span>
                                 </div>
@@ -155,11 +155,11 @@
                </div> -->
             </div>
 
-           
-                    
+
+
         </article>
-        
-        
+
+
     <!-- content end -->
 @endsection
 

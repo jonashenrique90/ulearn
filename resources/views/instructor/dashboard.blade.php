@@ -12,9 +12,9 @@
             <div class="counter counter-md counter-inverse text-left">
               <div class="counter-number-group">
                 <span class="counter-number">{{ $metrics['courses'] }}</span>
-                <span class="counter-number-related text-capitalize">courses</span>
+                <span class="counter-number-related text-capitalize">Cursos</span>
               </div>
-              <div class="counter-label text-capitalize">in total</div>
+              <div class="counter-label text-capitalize"></div>
             </div>
           </div>
           <!-- End Card -->
@@ -27,9 +27,9 @@
             <div class="counter counter-md counter-inverse text-left">
               <div class="counter-number-group">
                 <span class="counter-number">{{ $metrics['lectures'] }}</span>
-                <span class="counter-number-related text-capitalize">lectures</span>
+                <span class="counter-number-related text-capitalize">Tópicos</span>
               </div>
-              <div class="counter-label text-capitalize">in total</div>
+              <div class="counter-label text-capitalize"></div>
             </div>
           </div>
           <!-- End Card -->
@@ -42,9 +42,9 @@
             <div class="counter counter-md counter-inverse text-left">
               <div class="counter-number-group">
                 <span class="counter-number">{{ $metrics['videos'] }}</span>
-                <span class="counter-number-related text-capitalize">videos</span>
+                <span class="counter-number-related text-capitalize">Videos</span>
               </div>
-              <div class="counter-label text-capitalize">in total</div>
+              <div class="counter-label text-capitalize"></div>
             </div>
           </div>
           <!-- End Card -->
@@ -54,18 +54,18 @@
     <div class="panel">
         <div class="panel-heading">
                 <div class="panel-title">
-                <h4>Recently added courses</h4>
+                <h4>Cursos Atuais</h4>
                 </div>
         </div>
         <div class="panel-body">
             <table class="table table-hover table-striped">
                 <thead>
                     <tr>
-                    <th>Sl.no</th>
-                    <th>Title</th>
-                    <th>Slug</th>
-                    <th>Category</th>
-                    <th>Price</th>
+                    <th>#</th>
+                    <th>Título</th>
+                    <th>Subtítulo</th>
+                    <th>Categoria</th>
+                    <th>Preço</th>
                     <th>Status</th>
                     </tr>
                 </thead>
@@ -79,9 +79,9 @@
                     <td>{{ $course->price ? $course->price : 'Free' }}</td>
                     <td>
                         @if($course->is_active)
-                        <span class="badge badge-success">Active</span>
+                        <span class="badge badge-success">Ativo</span>
                         @else
-                        <span class="badge badge-danger">Inactive</span>
+                        <span class="badge badge-danger">Inativo</span>
                         @endif
                     </td>
                     </tr>

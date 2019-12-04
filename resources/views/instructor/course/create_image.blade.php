@@ -43,11 +43,11 @@ figure figcaption {
 .course-image-container img{
     width: 399px;
     height: 266px;
-    position: absolute;  
-    top: 0;  
-    bottom: 0;  
-    left: 0;  
-    right: 0;  
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     margin: auto;
 }
 .remove-lp{
@@ -61,10 +61,10 @@ figure figcaption {
 <div class="page-header">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ route('instructor.dashboard') }}">Dashboard</a></li>
-    <li class="breadcrumb-item"><a href="{{ route('instructor.course.list') }}">Courses</a></li>
-    <li class="breadcrumb-item active">Add</li>
+    <li class="breadcrumb-item"><a href="{{ route('instructor.course.list') }}">Cursos</a></li>
+    <li class="breadcrumb-item active">Adicionar</li>
   </ol>
-  <h1 class="page-title">Add Course</h1>
+  <h1 class="page-title">Adicionar Curso</h1>
 </div>
 
 <div class="page-content">
@@ -72,9 +72,9 @@ figure figcaption {
 <div class="panel">
   <div class="panel-body">
 
-    
+
     @include('instructor/course/tabs')
-    
+
 
     <form method="POST" action="{{ route('instructor.course.image.save') }}" id="courseForm" enctype="multipart/form-data">
       {{ csrf_field() }}
@@ -82,10 +82,10 @@ figure figcaption {
       <input type="hidden" name="old_course_image" value="{{ $course->course_image }}">
       <input type="hidden" name="old_thumb_image" value="{{ $course->thumb_image }}">
       <div class="row">
-      
+
         <div class="form-group col-md-6">
             <!-- <label class="form-control-label">Course Image</label> -->
-            
+
             <label class="cabinet center-block">
                 <figure class="course-image-container">
                     <i data-toggle="tooltip" data-original-title="Delete" data-id="course_image" class="fa fa-trash remove-lp" data-content="{{  Crypt::encryptString(json_encode(array('model'=>'courses', 'field'=>'course_image', 'pid' => 'id', 'id' => $course->id, 'photo'=>$course->course_image))) }}" style="display: @if(Storage::exists($course->course_image)){{ 'block' }} @else {{ 'none' }} @endif"></i>
@@ -96,7 +96,7 @@ figure figcaption {
 
         <div class="form-group col-md-6 pt-4">
             <span style="font-size: 10px;">
-                Supported File Formats: jpg,jpeg,png 
+                Supported File Formats: jpg,jpeg,png
                 <br>Dimesnion: 825px X 550px
                 <br> Max File Size: 1MB
             </span>
@@ -116,17 +116,17 @@ figure figcaption {
                 </div>
 
                 <div class="col-md-6">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
                 </div>
             </div>
         </div>
-      
+
       </div>
     </form>
   </div>
 </div>
 
-       
+
       <!-- End Panel Basic -->
 </div>
 
@@ -136,14 +136,14 @@ figure figcaption {
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Edit Photo</h4>
+                <h4 class="modal-title" id="myModalLabel">Editar Imagem</h4>
             </div>
             <div class="modal-body">
                 <div id="upload-demo" class="center-block"></div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" id="cropImageBtn" class="btn btn-primary">Crop</button>
+                <button type="button" id="cropImageBtn" class="btn btn-primary">Cortar</button>
             </div>
         </div>
     </div>
@@ -153,7 +153,7 @@ figure figcaption {
 @section('javascript')
 <script type="text/javascript">
     $(document).ready(function()
-    { 
+    {
         //image crop start
         $(".gambar").attr("src", @if(Storage::exists($course->course_image))"{{ Storage::url($course->course_image) }}" @else "{{ asset('backend/assets/images/course_detail.jpg') }}" @endif);
 
@@ -162,8 +162,8 @@ figure figcaption {
         rawImg,
         imageId;
 
-        function readFile(input, id) {    
-            
+        function readFile(input, id) {
+
             var file_name = input.files[0].name;
             var extension = (input.files[0].name).split('.').pop();
             var allowed_extensions = ["jpg", "jpeg", "png"];
@@ -179,7 +179,7 @@ figure figcaption {
                 } else if(fsize > 1048576*10) {
                     toastr.error("Image size exceeds");
                     return false;
-                } 
+                }
                 $('.input-group-file input').attr('value', file_name);
                 var reader = new FileReader();
                 reader.onload = function (e) {
@@ -230,7 +230,7 @@ figure figcaption {
 
         $(".tagsinput").tagsinput();
 
-       
+
         $('.remove-lp').click(function(event)
         {
             event.preventDefault();
@@ -249,11 +249,11 @@ figure figcaption {
                         this_id.hide();
                     }
                 });
-            }, function () {    
+            }, function () {
                 return false;
             });
 
-            
+
         });
     });
 </script>

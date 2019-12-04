@@ -3,9 +3,9 @@
 <div class="page-header">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-    <li class="breadcrumb-item active">Users Management</li>
+    <li class="breadcrumb-item active">Gerenciar Usuários</li>
   </ol>
-  <h1 class="page-title">Users Management</h1>
+  <h1 class="page-title">Gerenciar Usuários</h1>
 </div>
 
 <div class="page-content">
@@ -13,9 +13,9 @@
 <div class="panel">
         <div class="panel-heading">
             <div class="panel-title">
-              <a href="{{ route('admin.getForm') }}" class="btn btn-success btn-sm"><i class="icon wb-plus" aria-hidden="true"></i> Add User</a>
+              <a href="{{ route('admin.getForm') }}" class="btn btn-success btn-sm"><i class="icon wb-plus" aria-hidden="true"></i> Adicionar</a>
             </div>
-          
+
           <div class="panel-actions">
           <form method="GET" action="{{ route('admin.users') }}">
               <div class="input-group">
@@ -28,18 +28,18 @@
           </form>
           </div>
         </div>
-        
+
         <div class="panel-body">
           <table class="table table-hover table-striped w-full">
             <thead>
               <tr>
-                <th>Sl.no</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email ID</th>
-                <th>Roles</th>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>Email</th>
+                <th>Tipo</th>
                 <th>Status</th>
-                <th>Actions</th>
+                <th>Ações</th>
               </tr>
             </thead>
             <tbody>
@@ -69,7 +69,7 @@
                   @endif
                 </td>
                 <td>
-                  <a href="{{ url('admin/user-form/'.$user->id) }}" class="btn btn-xs btn-icon btn-inverse btn-round" data-toggle="tooltip" data-original-title="Edit">
+                  <a href="{{ url('admin/user-form/'.$user->id) }}" class="btn btn-xs btn-icon btn-inverse btn-round" data-toggle="tooltip" data-original-title="Editar">
                     <i class="icon wb-pencil" aria-hidden="true"></i>
                   </a>
                 </td>
@@ -77,12 +77,12 @@
               @endforeach
             </tbody>
           </table>
-          
+
           <div class="float-right">
             {{ $users->appends(['search' => Request::input('search')])->links() }}
           </div>
-          
-          
+
+
         </div>
       </div>
       <!-- End Panel Basic -->
@@ -93,8 +93,8 @@
 @section('javascript')
 <script type="text/javascript">
     $(document).ready(function()
-    { 
-        
+    {
+
     });
 </script>
 @endsection

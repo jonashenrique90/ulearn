@@ -15,9 +15,9 @@
 <div class="page-header">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ route('instructor.dashboard') }}">Dashboard</a></li>
-    <li class="breadcrumb-item active">Credits</li>
+    <li class="breadcrumb-item active">Creditos</li>
   </ol>
-  <h1 class="page-title">Credits</h1>
+  <h1 class="page-title">Creditos</h1>
 </div>
 
 <div class="page-content">
@@ -25,25 +25,25 @@
 <div class="panel">
         <div class="panel-heading">
             <div class="panel-title">
-                <button class="btn btn-success btn-sm" data-target="#withdrawModal" data-toggle="modal" type="button"><i class="icon wb-pencil" aria-hidden="true"></i> Withdraw Request</button>
+                <button class="btn btn-success btn-sm" data-target="#withdrawModal" data-toggle="modal" type="button"><i class="icon wb-pencil" aria-hidden="true"></i>Solicitações</button>
 
             </div>
             <div class="panel-actions total-credit">
-                <h5>AVAILABLE CREDITS:</h5> 
+                <h5>Disponível:</h5>
                 <span class="badge badge-danger">$ {{ Auth::user()->instructor->total_credits }}</span>
             </div>
         </div>
-        
+
         <div class="panel-body">
           <table class="table table-hover table-striped w-full">
             <thead>
               <tr>
-                <th>Sl.no</th>
-                <th>User</th>
-                <th>Category</th>
-                <th>Course</th>
-                <th>Credit</th>
-                <th>Credited on</th>
+                <th>#</th>
+                <th>Usuário</th>
+                <th>Categoria</th>
+                <th>Curso</th>
+                <th>Credito</th>
+                <th>Data</th>
               </tr>
             </thead>
             <tbody>
@@ -59,12 +59,12 @@
               @endforeach
             </tbody>
           </table>
-          
+
           <div class="float-right">
             {{ $credits->links() }}
           </div>
-          
-          
+
+
         </div>
       </div>
       <!-- End Panel Basic -->
@@ -83,25 +83,25 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
-        <h4 class="modal-title">Withdraw Request</h4>
+        <h4 class="modal-title">Solicitações</h4>
       </div>
       <div class="modal-body">
             <div class="row">
                 <div class="form-group col-md-12">
                     <label class="form-control-label">PayPal ID <span class="required">*</span></label>
-                    <input type="text" class="form-control" name="paypal_id" 
+                    <input type="text" class="form-control" name="paypal_id"
                         placeholder="PayPal ID" />
                 </div>
                 <div class="form-group col-md-12">
-                    <label class="form-control-label">Amount <span class="required">*</span></label>
-                    <input type="number" class="form-control" name="amount" 
+                    <label class="form-control-label">Total <span class="required">*</span></label>
+                    <input type="number" class="form-control" name="amount"
                         placeholder="Amount" />
                 </div>
             </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Salvar</button>
       </div>
     </div>
     </form>
@@ -113,7 +113,7 @@
 @section('javascript')
 <script type="text/javascript">
 $(document).ready(function()
-{ 
+{
     $("#withdrawForm").validate({
         rules: {
             paypal_id: {

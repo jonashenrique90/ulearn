@@ -3,9 +3,9 @@
 <div class="page-header">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-    <li class="breadcrumb-item active">Pages</li>
+    <li class="breadcrumb-item active">Gerenciar Página</li>
   </ol>
-  <h1 class="page-title">About</h1>
+  <h1 class="page-title">Quem somos</h1>
 </div>
 
 <div class="page-content">
@@ -17,7 +17,7 @@
       <input type="hidden" name="code" value="pageAbout">
         <div class="row">
             <div class="form-group col-md-12">
-                <label class="form-control-label">Content</label>
+                <label class="form-control-label">Conteúdo</label>
                 <textarea name="content">{{ isset($config['content']) ? $config['content'] : '' }}</textarea>
             </div>
         </div>
@@ -25,16 +25,16 @@
       <hr>
       <div class="form-group row">
         <div class="col-md-4">
-          <button type="submit" class="btn btn-primary">Submit</button>
-          <button type="reset" class="btn btn-default btn-outline">Reset</button>
+          <button type="submit" class="btn btn-primary">Salvar</button>
+          <button type="reset" class="btn btn-default btn-outline">Resetar</button>
         </div>
       </div>
-      
+
     </form>
   </div>
 </div>
 
-       
+
       <!-- End Panel Basic -->
 </div>
 
@@ -43,8 +43,8 @@
 @section('javascript')
 <script type="text/javascript">
     $(document).ready(function()
-    { 
-        tinymce.init({ 
+    {
+        tinymce.init({
           selector: "textarea",  // change this value according to your HTML
           plugins: "code",
           toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | code",

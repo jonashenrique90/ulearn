@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>ULEARN LMS</title>
+        <title>Cursos EAD</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="robots" content="all,follow">
@@ -30,7 +30,7 @@
             </div>
             <div class="col-md-3 col-lg-6 col-xl-6 d-none d-md-block">
                 <div class="dropdown float-left" >
-                  <span id="dropdownMenuButton" data-toggle="dropdown">Categories &nbsp;<i class="fa fa-caret-down"></i></span>
+                  <span id="dropdownMenuButton" data-toggle="dropdown">Categorias &nbsp;<i class="fa fa-caret-down"></i></span>
                     <?php
                         $categories = SiteHelpers::active_categories();
                     ?>
@@ -45,10 +45,11 @@
                 </div>
             </div>
 
-            <div class="col-sm-5 col-md-3 col-lg-2 col-xl-2 d-none d-sm-block">
+            {{-- <div class="col-sm-5 col-md-3 col-lg-2 col-xl-2 d-none d-sm-block"> --}}
                 @if(Auth::check() && !Auth::user()->hasRole('instructor') && !Auth::user()->hasRole('admin'))
-                <span class="become-instructor" href="{{ route('login') }}" data-toggle="modal" data-target="#myModal">Become Instructor</span>
+                <span class="become-instructor" href="{{ route('login') }}" data-toggle="modal" data-target="#myModal">Certificados</span>
                 @endif
+                <span class="become-instructor"></span>
             </div>
 
             <div class="col-6 col-sm-3 col-md-3 col-lg-2 col-xl-2">
@@ -62,16 +63,16 @@
 
                     @if(Auth::user()->hasRole('instructor'))
                     <a class="dropdown-item" href="{{ route('instructor.dashboard') }}" >
-                        <i class="fa fa-sign-out-alt"></i> Instructor
+                        <i class="fa fa-sign-out-alt"></i> Instrutor
                     </a>
                     @endif
 
                     <a class="dropdown-item" href="{{ route('my.courses') }}" >
-                        <i class="fa fa-sign-out-alt"></i> My Courses
+                        <i class="fa fa-sign-out-alt"></i> Meus Cursos
                     </a>
 
                     <a class="dropdown-item" href="{{ route('logOut') }}" >
-                        <i class="fa fa-sign-out-alt"></i> Logout
+                        <i class="fa fa-sign-out-alt"></i> Sair
                     </a>
 
                   </div>
@@ -102,7 +103,7 @@
         <div class="row m-0">
             <div class="col-lg-2 col-md-4 col-sm-4 col-6 mt-3">
                 <ul>
-                    <li class="mb-1"><b>Quick Links</b></li>
+                    <li class="mb-1"><b>Links</b></li>
                     <li><a href="{{ route('home') }}">Home Page</a></li>
                     <li><a href="{{ route('course.list') }}">Lista de Cursos</a></li>
                     <li><a href="{{ route('instructor.list') }}">Lista de Instrutores</a></li>
@@ -111,7 +112,7 @@
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 col-6 mt-3">
                 <ul>
-                    <li class="mb-1"><b>Resources</b></li>
+                    <li class="mb-1"><b>Recursos</b></li>
                     <li><a href="{{ route('page.about') }}">Quem Somos</a></li>
                     <li><a href="{{ route('page.contact') }}">Contato</a></li>
                     <li><a href="{{ route('register') }}">Registrar-se</a></li>
@@ -133,7 +134,7 @@
                 <img src="{{ asset('frontend/img/logo_footer.png') }}" class="img-fluid" width="210" height="48">
                 <br>
                 <span id="c-copyright">
-                    Copyright © 2019, Ulearn. All rights reserved.
+                    Copyright © 2019, Agência Caroá. Todos os direitos reservados.
                 </span>
             </div>
         </div>
@@ -145,7 +146,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header bi-header ">
-            <h5 class="col-12 modal-title text-center bi-header-seperator-head">Become an Instructor</h5>
+            <h5 class="col-12 modal-title text-center bi-header-seperator-head">Instrutor</h5>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
 
@@ -156,23 +157,23 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-6">
-                                <label>First Name</label>
-                                <input type="text" class="form-control form-control-sm" placeholder="First Name" name="first_name">
+                                <label>Nome</label>
+                                <input type="text" class="form-control form-control-sm" placeholder="Nome" name="first_name">
                             </div>
                             <div class="col-6">
-                                <label>Last Name</label>
-                                <input type="text" class="form-control form-control-sm" placeholder="Last Name" name="last_name">
+                                <label>Sobrenome</label>
+                                <input type="text" class="form-control form-control-sm" placeholder="Sobrenome" name="last_name">
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Contact Email</label>
-                        <input type="text" class="form-control form-control-sm" placeholder="Contact Email" name="contact_email">
+                        <label>Email</label>
+                        <input type="text" class="form-control form-control-sm" placeholder="Email" name="contact_email">
                     </div>
 
                     <div class="form-group">
-                        <label>Telephone</label>
-                        <input type="text" class="form-control form-control-sm" placeholder="Telephone" name="telephone">
+                        <label>Telefone</label>
+                        <input type="text" class="form-control form-control-sm" placeholder="Telefone" name="telephone">
                     </div>
 
                     <div class="form-group">
@@ -181,8 +182,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Biography</label>
-                        <textarea class="form-control form-control" placeholder="Biography" name="biography"></textarea>
+                        <label>Biografia</label>
+                        <textarea class="form-control form-control" placeholder="Biografia" name="biography"></textarea>
                     </div>
 
                     <div class="form-group mt-4">

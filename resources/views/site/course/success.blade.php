@@ -19,10 +19,10 @@
                   </ol>
                 </div>
             </div>
-        
+
         <!-- breadcrumb end -->
-        
-        
+
+
         <article class="container not-found-block">
             <div class="row">
                <div class="col-12 not-found-col">
@@ -38,7 +38,7 @@
                </div>
             </div>
         </article>
-        
-        
+
+
     <!-- content end -->
 @endsection

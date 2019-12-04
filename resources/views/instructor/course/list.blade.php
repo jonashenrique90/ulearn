@@ -3,9 +3,9 @@
 <div class="page-header">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ route('instructor.dashboard') }}">Dashboard</a></li>
-    <li class="breadcrumb-item active">Courses</li>
+    <li class="breadcrumb-item active">Cursos</li>
   </ol>
-  <h1 class="page-title">Courses</h1>
+  <h1 class="page-title">Cursos</h1>
 </div>
 
 <div class="page-content">
@@ -13,9 +13,9 @@
 <div class="panel">
         <div class="panel-heading">
             <div class="panel-title">
-              <a href="{{ route('instructor.course.info') }}" class="btn btn-success btn-sm"><i class="icon wb-plus" aria-hidden="true"></i> Add Course</a>
+              <a href="{{ route('instructor.course.info') }}" class="btn btn-success btn-sm"><i class="icon wb-plus" aria-hidden="true"></i> Adicionar</a>
             </div>
-          
+
           <div class="panel-actions">
           <form method="GET" action="{{ route('instructor.course.list') }}">
               <div class="input-group">
@@ -28,18 +28,18 @@
           </form>
           </div>
         </div>
-        
+
         <div class="panel-body">
           <table class="table table-hover table-striped w-full">
             <thead>
               <tr>
-                <th>Sl.no</th>
-                <th>Title</th>
-                <th>Slug</th>
-                <th>Category</th>
-                <th>Price</th>
+                <th>#</th>
+                <th>Título</th>
+                <th>Subtítulo</th>
+                <th>Categoria</th>
+                <th>Preço</th>
                 <th>Status</th>
-                <th>Actions</th>
+                <th>Ações</th>
               </tr>
             </thead>
             <tbody>
@@ -58,11 +58,11 @@
                   @endif
                 </td>
                 <td>
-                  <a href="{{ route('instructor.course.info.edit', $course->id) }}" class="btn btn-xs btn-icon btn-inverse btn-round" data-toggle="tooltip" data-original-title="Edit" >
+                  <a href="{{ route('instructor.course.info.edit', $course->id) }}" class="btn btn-xs btn-icon btn-inverse btn-round" data-toggle="tooltip" data-original-title="Editar" >
                     <i class="icon wb-pencil" aria-hidden="true"></i>
                   </a>
 
-                  <a href="{{ url('instructor-course-delete/'.$course->id) }}" class="delete-record btn btn-xs btn-icon btn-inverse btn-round" data-toggle="tooltip" data-original-title="Delete" >
+                  <a href="{{ url('instructor-course-delete/'.$course->id) }}" class="delete-record btn btn-xs btn-icon btn-inverse btn-round" data-toggle="tooltip" data-original-title="Deletar" >
                     <i class="icon wb-trash" aria-hidden="true"></i>
                   </a>
                 </td>
@@ -70,12 +70,12 @@
               @endforeach
             </tbody>
           </table>
-          
+
           <div class="float-right">
             {{ $courses->appends(['search' => Request::input('search')])->links() }}
           </div>
-          
-          
+
+
         </div>
       </div>
       <!-- End Panel Basic -->
@@ -86,7 +86,7 @@
 @section('javascript')
 <script type="text/javascript">
     $(document).ready(function()
-    { 
+    {
 
     });
 </script>

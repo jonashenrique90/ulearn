@@ -3,7 +3,7 @@
 <div class="page-header">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-    <li class="breadcrumb-item active">Pages</li>
+    <li class="breadcrumb-item active">Gerenciar Página</li>
   </ol>
   <h1 class="page-title">Home</h1>
 </div>
@@ -17,27 +17,27 @@
       <input type="hidden" name="code" value="pageHome">
        <div class="row">
             <div class="form-group col-md-6">
-              <label class="form-control-label">Banner Title</label>
-              <input type="text" class="form-control" name="banner_title" 
+              <label class="form-control-label">Título do Banner</label>
+              <input type="text" class="form-control" name="banner_title"
                 placeholder="Banner Title" value="{{ isset($config['banner_title']) ? $config['banner_title'] : '' }}" />
             </div>
-        
+
             <div class="form-group col-md-6">
-              <label class="form-control-label">Banner Text</label>
-              <input type="text" class="form-control" name="banner_text" 
+              <label class="form-control-label">Texto do Banner</label>
+              <input type="text" class="form-control" name="banner_text"
                 placeholder="Banner Text" value="{{ isset($config['banner_text']) ? $config['banner_text'] : '' }}" />
             </div>
-        
+
             <div class="form-group col-md-6">
-              <label class="form-control-label">Instructor Text</label>
-              <input type="text" class="form-control" name="instructor_text" 
+              <label class="form-control-label">Texto dos Instrutores</label>
+              <input type="text" class="form-control" name="instructor_text"
                 placeholder="Instructor Text" value="{{ isset($config['instructor_text']) ? $config['instructor_text'] : '' }}" />
             </div>
-        
+
 
             <div class="form-group col-md-6">
               <label class="form-control-label">Learn Block Title</label>
-              <input type="text" class="form-control" name="learn_block_title" 
+              <input type="text" class="form-control" name="learn_block_title"
                 placeholder="Learn Block Title" value="{{ isset($config['learn_block_title']) ? $config['learn_block_title'] : '' }}" />
             </div>
 
@@ -51,16 +51,16 @@
       <hr>
       <div class="form-group row">
         <div class="col-md-4">
-          <button type="submit" class="btn btn-primary">Submit</button>
-          <button type="reset" class="btn btn-default btn-outline">Reset</button>
+          <button type="submit" class="btn btn-primary">Salvar</button>
+          <button type="reset" class="btn btn-default btn-outline">Resetar</button>
         </div>
       </div>
-      
+
     </form>
   </div>
 </div>
 
-       
+
       <!-- End Panel Basic -->
 </div>
 
@@ -69,8 +69,8 @@
 @section('javascript')
 <script type="text/javascript">
     $(document).ready(function()
-    { 
-        tinymce.init({ 
+    {
+        tinymce.init({
             selector:'textarea',
             menubar:false,
             statusbar: false,

@@ -12,9 +12,9 @@
             <div class="counter counter-md counter-inverse text-left">
               <div class="counter-number-group">
                 <span class="counter-number">{{ $metrics['students'] }}</span>
-                <span class="counter-number-related text-capitalize">students</span>
+                <span class="counter-number-related text-capitalize">Alunos</span>
               </div>
-              <div class="counter-label text-capitalize">in total</div>
+              <div class="counter-label text-capitalize">Cadastrados</div>
             </div>
           </div>
           <!-- End Card -->
@@ -27,9 +27,9 @@
             <div class="counter counter-md counter-inverse text-left">
               <div class="counter-number-group">
                 <span class="counter-number">{{ $metrics['instructors'] }}</span>
-                <span class="counter-number-related text-capitalize">instructors</span>
+                <span class="counter-number-related text-capitalize">Instrutores</span>
               </div>
-              <div class="counter-label text-capitalize">in total</div>
+              <div class="counter-label text-capitalize">Cadastrados</div>
             </div>
           </div>
           <!-- End Card -->
@@ -42,9 +42,9 @@
             <div class="counter counter-md counter-inverse text-left">
               <div class="counter-number-group">
                 <span class="counter-number">{{ $metrics['courses'] }}</span>
-                <span class="counter-number-related text-capitalize">courses</span>
+                <span class="counter-number-related text-capitalize">Cursos</span>
               </div>
-              <div class="counter-label text-capitalize">in total</div>
+              <div class="counter-label text-capitalize">Ativos</div>
             </div>
           </div>
           <!-- End Card -->
@@ -54,19 +54,19 @@
     <div class="panel">
         <div class="panel-heading">
                 <div class="panel-title">
-                <h4>Recently added courses</h4>
+                <h4>Cursos Adicionados Recentemente</h4>
                 </div>
         </div>
         <div class="panel-body">
             <table class="table table-hover table-striped">
                 <thead>
                     <tr>
-                    <th>Sl.no</th>
-                    <th>Title</th>
-                    <th>Slug</th>
-                    <th>Category</th>
-                    <th>Instructor</th>
-                    <th>Price</th>
+                    <th>#</th>
+                    <th>Título</th>
+                    <th>Subtítulo</th>
+                    <th>Categoria</th>
+                    <th>Instrutor</th>
+                    <th>Preço</th>
                     <th>Status</th>
                     </tr>
                 </thead>

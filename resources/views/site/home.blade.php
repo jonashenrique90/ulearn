@@ -8,7 +8,7 @@
             <span class="title-sub-header">{{ Sitehelpers::get_option('pageHome', 'banner_text') }}</span>
             <form method="GET" action="{{ route('course.list') }}">
             <div class="searchbox-contrainer col-md-6 mx-auto">
-                <input name="keyword" type="text" class="searchbox d-none d-sm-inline-block" placeholder="Search for courses by course titles"><input name="keyword" type="text" class="searchbox d-inline-block d-sm-none" placeholder="Search for courses"><button type="submit" class="searchbox-submit"><i class="fa fa-search"></i></button>
+                <input name="keyword" type="text" class="searchbox d-none d-sm-inline-block" placeholder="Pesquisar cursos por Título"><input name="keyword" type="text" class="searchbox d-inline-block d-sm-none" placeholder="Pesquisar cursos"><button type="submit" class="searchbox-submit"><i class="fa fa-search"></i></button>
             </div>
             </form>
         </div>
@@ -87,7 +87,7 @@
                     <div class="col-xl-6 col-lg-6 col-md-6">
                         <h3 class="dblock-heading">{{ Sitehelpers::get_option('pageHome', 'learn_block_title') }}</h3>
                         <p class="dblock-text">{!! Sitehelpers::get_option('pageHome', 'learn_block_text') !!}</p>
-                        <a href="{{ route('course.list') }}" class="btn btn-ulearn">Explore Courses</a>
+                        <a href="{{ route('course.list') }}" class="btn btn-ulearn">Explorar Cursos</a>
                     </div>
 
                     <div class="col-xl-6 col-lg-6 col-md-6 vertical-align">

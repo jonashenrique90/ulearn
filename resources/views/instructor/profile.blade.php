@@ -43,11 +43,11 @@ figure figcaption {
 .course-image-container img{
     width: 258px;
     height: 172px;
-    position: absolute;  
-    top: 0;  
-    bottom: 0;  
-    left: 0;  
-    right: 0;  
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     margin: auto;
 }
 .remove-lp{
@@ -60,9 +60,9 @@ figure figcaption {
 <div class="page-header">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ route('instructor.dashboard') }}">Dashboard</a></li>
-    <li class="breadcrumb-item active">Profile</li>
+    <li class="breadcrumb-item active">Perfil</li>
   </ol>
-  <h1 class="page-title">Profile</h1>
+  <h1 class="page-title">Perfil</h1>
 </div>
 
 <div class="page-content">
@@ -75,19 +75,19 @@ figure figcaption {
       <input type="hidden" name="instructor_id" value="{{ $instructor->id }}">
       <input type="hidden" name="old_course_image" value="{{ $instructor->instructor_image }}">
       <div class="row">
-      
+
         <div class="form-group col-md-4">
-            <label class="form-control-label">First Name <span class="required">*</span></label>
-            <input type="text" class="form-control" name="first_name" 
-                placeholder="First Name" value="{{ $instructor->first_name }}" />
+            <label class="form-control-label">Nome<span class="required">*</span></label>
+            <input type="text" class="form-control" name="first_name"
+                placeholder="Nome" value="{{ $instructor->first_name }}" />
                 @if ($errors->has('first_name'))
                     <label class="error" for="first_name">{{ $errors->first('first_name') }}</label>
                 @endif
         </div>
 
         <div class="form-group col-md-4">
-            <label class="form-control-label">Last Name <span class="required">*</span></label>
-            <input type="text" class="form-control" name="last_name" 
+            <label class="form-control-label">Sobrenome <span class="required">*</span></label>
+            <input type="text" class="form-control" name="last_name"
                 placeholder="Last Name" value="{{ $instructor->last_name }}" />
                 @if ($errors->has('last_name'))
                     <label class="error" for="last_name">{{ $errors->first('last_name') }}</label>
@@ -95,8 +95,8 @@ figure figcaption {
         </div>
 
         <div class="form-group col-md-4">
-            <label class="form-control-label">Contact Email <span class="required">*</span></label>
-            <input type="text" class="form-control" name="contact_email" 
+            <label class="form-control-label">Email <span class="required">*</span></label>
+            <input type="text" class="form-control" name="contact_email"
                 placeholder="Contact Email" value="{{ $instructor->contact_email }}" />
                 @if ($errors->has('contact_email'))
                     <label class="error" for="contact_email">{{ $errors->first('contact_email') }}</label>
@@ -104,18 +104,18 @@ figure figcaption {
         </div>
 
         <div class="form-group col-md-4">
-            <label class="form-control-label">Telephone <span class="required">*</span></label>
-            <input type="text" class="form-control" name="telephone" 
-                placeholder="Telephone" value="{{ $instructor->telephone }}" />
+            <label class="form-control-label">Telefone <span class="required">*</span></label>
+            <input type="text" class="form-control" name="telephone"
+                placeholder="Telefone" value="{{ $instructor->telephone }}" />
                 @if ($errors->has('telephone'))
                     <label class="error" for="telephone">{{ $errors->first('telephone') }}</label>
                 @endif
         </div>
 
         <div class="form-group col-md-4">
-            <label class="form-control-label">Mobile </label>
-            <input type="text" class="form-control" name="mobile" 
-                placeholder="Mobile" value="{{ $instructor->mobile }}" />
+            <label class="form-control-label">Celular </label>
+            <input type="text" class="form-control" name="mobile"
+                placeholder="Celular" value="{{ $instructor->mobile }}" />
                 @if ($errors->has('mobile'))
                     <label class="error" for="mobile">{{ $errors->first('mobile') }}</label>
                 @endif
@@ -123,7 +123,7 @@ figure figcaption {
 
         <div class="form-group col-md-4">
             <label class="form-control-label">Paypal ID <span class="required">*</span></label>
-            <input type="text" class="form-control" name="paypal_id" 
+            <input type="text" class="form-control" name="paypal_id"
                 placeholder="Paypal ID" value="{{ $instructor->paypal_id }}" />
                 @if ($errors->has('paypal_id'))
                     <label class="error" for="paypal_id">{{ $errors->first('paypal_id') }}</label>
@@ -131,8 +131,8 @@ figure figcaption {
         </div>
 
         <div class="form-group col-md-6">
-            <label class="form-control-label">Facebook Link </label>
-            <input type="text" class="form-control" name="link_facebook" 
+            <label class="form-control-label">Facebook </label>
+            <input type="text" class="form-control" name="link_facebook"
                 placeholder="Facebook Link" value="{{ $instructor->link_facebook }}" />
                 @if ($errors->has('link_facebook'))
                     <label class="error" for="link_facebook">{{ $errors->first('link_facebook') }}</label>
@@ -140,8 +140,8 @@ figure figcaption {
         </div>
 
         <div class="form-group col-md-6">
-            <label class="form-control-label">Linkedin Link </label>
-            <input type="text" class="form-control" name="link_linkedin" 
+            <label class="form-control-label">Linkedin </label>
+            <input type="text" class="form-control" name="link_linkedin"
                 placeholder="Linkedin Link" value="{{ $instructor->link_linkedin }}" />
                 @if ($errors->has('link_linkedin'))
                     <label class="error" for="link_linkedin">{{ $errors->first('link_linkedin') }}</label>
@@ -150,7 +150,7 @@ figure figcaption {
 
         <div class="form-group col-md-6">
             <label class="form-control-label">Twitter Link </label>
-            <input type="text" class="form-control" name="link_twitter" 
+            <input type="text" class="form-control" name="link_twitter"
                 placeholder="Twitter Link" value="{{ $instructor->link_twitter }}" />
                 @if ($errors->has('link_twitter'))
                     <label class="error" for="link_twitter">{{ $errors->first('link_twitter') }}</label>
@@ -159,7 +159,7 @@ figure figcaption {
 
         <div class="form-group col-md-6">
             <label class="form-control-label">Google Plus Link </label>
-            <input type="text" class="form-control" name="link_googleplus" 
+            <input type="text" class="form-control" name="link_googleplus"
                 placeholder="Google Plus Link" value="{{ $instructor->link_googleplus }}" />
                 @if ($errors->has('link_googleplus'))
                     <label class="error" for="link_googleplus">{{ $errors->first('link_googleplus') }}</label>
@@ -169,10 +169,10 @@ figure figcaption {
         </div>
 
         <div class="row">
-        	
+
     		<div class="form-group col-md-4">
-	            <label class="form-control-label">Course Image</label>
-	            
+	            <label class="form-control-label">Imagem do Perfil</label>
+
 	            <label class="cabinet center-block">
 	                <figure class="course-image-container">
 	                    <i data-toggle="tooltip" data-original-title="Delete" data-id="course_image" class="fa fa-trash remove-lp" data-content="{{  Crypt::encryptString(json_encode(array('model'=>'courses', 'field'=>'course_image', 'pid' => 'id', 'id' => $instructor->id, 'photo'=>$instructor->instructor_image))) }}" style="display: @if(Storage::exists($instructor->instructor_image)){{ 'block' }} @else {{ 'none' }} @endif"></i>
@@ -180,17 +180,17 @@ figure figcaption {
 	                	<input type="file" class="item-img file center-block" name="course_image" id="course_image" />
 	                </figure>
                     <span style="font-size: 10px;">
-                    Supported File Formats: jpg,jpeg,png 
+                    Supported File Formats: jpg,jpeg,png
                     <br>Dimesnion: 258px X 172px
                     <br> Max File Size: 1MB
                 </span>
 	            </label>
 	            <input type="hidden" name="course_image_base64" id="course_image_base64">
-                
+
 	        </div>
 
 	        <div class="form-group col-md-8">
-	            <label class="form-control-label">Biography <span class="required">*</span></label>
+	            <label class="form-control-label">Texto Apresentação <span class="required">*</span></label>
 	            <textarea name="biography">
 	                {{ $instructor->biography }}
 	            </textarea>
@@ -198,23 +198,23 @@ figure figcaption {
                     <label class="error" for="biography">{{ $errors->first('biography') }}</label>
                 @endif
 	        </div>
-        	
+
         </div>
 
-      
+
       <hr>
       <div class="form-group row">
         <div class="col-md-4">
-          <button type="submit" class="btn btn-primary">Submit</button>
-          <button type="reset" class="btn btn-default btn-outline">Reset</button>
+          <button type="submit" class="btn btn-primary">Salvar</button>
+          <button type="reset" class="btn btn-default btn-outline">Resetar</button>
         </div>
       </div>
-      
+
     </form>
   </div>
 </div>
 
-       
+
       <!-- End Panel Basic -->
 </div>
 
@@ -242,7 +242,7 @@ figure figcaption {
 <script type="text/javascript">
 
     $(document).ready(function()
-    { 
+    {
         //image crop start
         $(".gambar").attr("src", @if(Storage::exists($instructor->instructor_image))"{{ Storage::url($instructor->instructor_image) }}" @else "{{ asset('backend/assets/images/course_detail.jpg') }}" @endif);
 
@@ -251,8 +251,8 @@ figure figcaption {
         rawImg,
         imageId;
 
-        function readFile(input, id) {    
-            
+        function readFile(input, id) {
+
             var file_name = input.files[0].name;
             var extension = (input.files[0].name).split('.').pop();
             var allowed_extensions = ["jpg", "jpeg", "png"];
@@ -268,7 +268,7 @@ figure figcaption {
                 } else if(fsize > 1048576) {
                     toastr.error("Image size exceeds");
                     return false;
-                } 
+                }
                 $('.input-group-file input').attr('value', file_name);
                 var reader = new FileReader();
                 reader.onload = function (e) {
@@ -335,14 +335,14 @@ figure figcaption {
                         this_id.hide();
                     }
                 });
-            }, function () {    
+            }, function () {
                 return false;
             });
 
-            
+
         });
 
-        tinymce.init({ 
+        tinymce.init({
             selector:'textarea',
             menubar:false,
             statusbar: false,
@@ -350,7 +350,7 @@ figure figcaption {
             content_style: "#tinymce p{color:#76838f;}"
         });
 
-       
+
         $("#profileForm").validate({
                 rules: {
                     first_name: {

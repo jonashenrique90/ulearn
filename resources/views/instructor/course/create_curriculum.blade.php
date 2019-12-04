@@ -10,10 +10,10 @@ $course_id = $course->id;
 <div class="page-header">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ route('instructor.dashboard') }}">Dashboard</a></li>
-    <li class="breadcrumb-item"><a href="{{ route('instructor.course.list') }}">Courses</a></li>
-    <li class="breadcrumb-item active">Add</li>
+    <li class="breadcrumb-item"><a href="{{ route('instructor.course.list') }}">Cursos</a></li>
+    <li class="breadcrumb-item active">Adicionar</li>
   </ol>
-  <h1 class="page-title">Add Course</h1>
+  <h1 class="page-title">Adicionar cursos</h1>
 </div>
 
 <div class="page-content">
@@ -21,23 +21,23 @@ $course_id = $course->id;
 <div class="panel">
   <div class="panel-body">
 
-    
+
     @include('instructor/course/tabs')
-    
+
     <!-- curriculum start -->
     <div class="curriculam-block">
 <div class="container">
-  <div class="row">  
-    
-    
+  <div class="row">
+
+
     <div class="col-md-12">
 
-      <div class="lach_dev resp-tab-content course_tab"> 
+      <div class="lach_dev resp-tab-content course_tab">
         <div class="slider_divsblocks">
-          
+
           <div class="form-group">
             <form method="POST" action="{{ 'course/updatecourse' }}" accept-charset="UTF-8" class="form-horizontal saveLabel" parsley-validate="" novalidate=" " enctype="multipart/form-data">
-            
+
              <input name="course_id" type="hidden" value="{{ $course->id }}">
 
 
@@ -56,10 +56,10 @@ $course_id = $course->id;
             <input name="courseselectlibrary" type="hidden" value="{{ url('courses/lecturelib/save') }}">
             <input name="courseselectlibraryres" type="hidden" value="{{ url('courses/lecturelibres/save') }}">
             <input name="courseexternalres" type="hidden" value="{{ url('courses/lectureexres/save') }}">
-            
-            
-            
-            
+
+
+
+
             <div class="su_course_curriculam">
 
               <div class="su_course_curriculam_sortable">
@@ -116,7 +116,7 @@ $course_id = $course->id;
                       </div>
                     </div>
 
-                    
+
                     <!-- add contents block start -->
                     <div class="lecturepopup hideit" id="wholeblock-{!! $lecturequiz->lecture_quiz_id !!}">
                       <div class="lecturecontent">
@@ -131,7 +131,7 @@ $course_id = $course->id;
                       </div>
                     </div>
                     <!-- Add contents block end -->
-                    
+
 
                     <!-- add video start -->
                     <div class="lecturepopup @if(empty($lecturequiz->media)) @if($lecturequiz->media_type != 3) hideit @endif @endif" id="contentpopshow{!! $lecturequiz->lecture_quiz_id !!}">
@@ -139,7 +139,7 @@ $course_id = $course->id;
                         <div class="lecturecontent_video lecturecontent_tab">
                           <div class="lecturecontent_video_content lecturecontent_tab_content">
                             <div id="uploadvideo{!! $lecturequiz->lecture_quiz_id !!}" class="uploadvideo" style="display: block;">
-                            
+
                               <div class="cccontainer" id="cccontainer{!! $lecturequiz->lecture_quiz_id !!}">
 
                                 <div class="cctabs" id="cctabs{!! $lecturequiz->lecture_quiz_id !!}">
@@ -189,7 +189,7 @@ $course_id = $course->id;
                                   </div>
                                 </div>
                                 <div id="fromlibrary{!! $lecturequiz->lecture_quiz_id !!}" class="cctab-content">
-                                
+
                                   <div class="cvideofiles" id="cvideofiles{!! $lecturequiz->lecture_quiz_id !!}">
                                     @if(isset($uservideos) && !empty($uservideos))
                                     @foreach($uservideos as $video)
@@ -199,7 +199,7 @@ $course_id = $course->id;
                                     <center><em>{!! Lang::get('curriculum.no_library')!!}</em></center>
                                     @endif
                                   </div>
-                                
+
                                   <div class="caudiofiles" id="caudiofiles{!! $lecturequiz->lecture_quiz_id !!}">
                                     @if(isset($useraudios) && !empty($useraudios))
                                     @foreach($useraudios as $audio)
@@ -209,7 +209,7 @@ $course_id = $course->id;
                                     <center><em>{!! Lang::get('curriculum.no_library')!!}</em></center>
                                     @endif
                                   </div>
-                                
+
                                   <div class="cprefiles" id="cprefiles{!! $lecturequiz->lecture_quiz_id !!}">
                                     @if(isset($userpresentation) && !empty($userpresentation))
                                     @foreach($userpresentation as $presentation)
@@ -219,7 +219,7 @@ $course_id = $course->id;
                                     <center><em>{!! Lang::get('curriculum.no_library')!!}</em></center>
                                     @endif
                                   </div>
-                                
+
                                   <div class="cdocfiles" id="cdocfiles{!! $lecturequiz->lecture_quiz_id !!}">
                                     @if(isset($userdocuments) && !empty($userdocuments))
                                     @foreach($userdocuments as $document)
@@ -229,7 +229,7 @@ $course_id = $course->id;
                                     <center><em>{!! Lang::get('curriculum.no_library')!!}</em></center>
                                     @endif
                                   </div>
-                                
+
                                   <div class="cresfiles" id="cresfiles{!! $lecturequiz->lecture_quiz_id !!}">
                                     @if(isset($userresources) && !empty($userresources))
                                     @foreach($userresources as $resource)
@@ -239,10 +239,10 @@ $course_id = $course->id;
                                     <center><em>{!! Lang::get('curriculum.no_library')!!}</em></center>
                                     @endif
                                   </div>
-                                  
+
                                 </div>
                                 <div id="externalres{!! $lecturequiz->lecture_quiz_id !!}" class="cctab-content">
-                                  
+
                                   <div class="form-group">
                                     <label for="label" class="col-xs-12"><p><strong>{!! Lang::get('curriculum.Title')!!}</strong></p></label>
                                     <div class="col-xs-12">
@@ -260,22 +260,22 @@ $course_id = $course->id;
                                       <div><input type="button" name="su_course_add_res_link_submit" value="{!! Lang::get('curriculum.Add_Link')!!}" class="btn btn-warning su_course_add_res_link_submit" data-lid="{!! $lecturequiz->lecture_quiz_id !!}"></div>
                                     </div>
                                   </div>
-                                  
+
                                 </div>
 
                               </div>
-                              
-                                
-                                
+
+
+
                               <div class="tips" id="videoresponse{!! $lecturequiz->lecture_quiz_id !!}">
                                 @if(!empty($lecturequiz->media) || !empty($lecturequiz->contenttext))
-                                
+
                                 @if(isset($lecturesmedia[$section->section_id][$lecturequiz->lecture_quiz_id]))
-                                
-                                
+
+
                                 <div class="lecture_main_content_first_block1">
                                   <div class="lc_details @if($lecturequiz->media_type == 0) imagetype-video @elseif($lecturequiz->media_type == 1) imagetype-audio @elseif($lecturequiz->media_type == 2) imagetype-file @elseif($lecturequiz->media_type == 3) imagetype-text @elseif($lecturequiz->media_type == 5) imagetype-presentation @endif">
-                                  
+
                                     @if($lecturequiz->media_type == 0)
                                     <div class="lecture_title">
                                       <p>{!! $lecturesmedia[$section->section_id][$lecturequiz->lecture_quiz_id][0]->video_name !!}</p>
@@ -328,7 +328,7 @@ $course_id = $course->id;
                                     @elseif($lecturequiz->media_type == 2)
                                     <div class="lecture_title">
                                       <p>{!! $lecturesmedia[$section->section_id][$lecturequiz->lecture_quiz_id][0]->file_title !!}</p>
-                                      @php $pdfpages = $lecturesmedia[$section->section_id][$lecturequiz->lecture_quiz_id][0]->duration; @endphp 
+                                      @php $pdfpages = $lecturesmedia[$section->section_id][$lecturequiz->lecture_quiz_id][0]->duration; @endphp
                                       <p>@if($pdfpages <= 1) {!! $pdfpage = $pdfpages.' Page' !!} @else {!! $pdfpage = $pdfpages.' Pages' !!} @endif</p>
                                     </div>
                                     <div class="lecture_buttons">
@@ -357,7 +357,7 @@ $course_id = $course->id;
                                         @endif
                                       </div>
                                       <div class="">
-                                        
+
                                       </div>
                                     </div>
                                     <div class="clearfix"></div>
@@ -367,7 +367,7 @@ $course_id = $course->id;
                                     @elseif($lecturequiz->media_type == 5)
                                     <div class="lecture_title">
                                       <p>{!! $lecturesmedia[$section->section_id][$lecturequiz->lecture_quiz_id][0]->file_title !!}</p>
-                                      @php $pdfpages = $lecturesmedia[$section->section_id][$lecturequiz->lecture_quiz_id][0]->duration; @endphp 
+                                      @php $pdfpages = $lecturesmedia[$section->section_id][$lecturequiz->lecture_quiz_id][0]->duration; @endphp
                                       <p>@if($pdfpages <= 1) {!! $pdfpage = $pdfpages.' Page' !!} @else {!! $pdfpage = $pdfpages.' Pages' !!} @endif</p>
                                     </div>
                                     <div class="lecture_buttons">
@@ -382,13 +382,13 @@ $course_id = $course->id;
                                       </div>
                                     </div>
                                     @endif
-                                  
+
                                   </div>
-                                
+
                                 </div>
                                 @endif
                                 @endif
-                              
+
                               </div>
                               <div id="resresponse{!! $lecturequiz->lecture_quiz_id !!}"></div>
                             </div>
@@ -407,7 +407,7 @@ $course_id = $course->id;
                           <div class="editdescription" id="descriptions{!! $lecturequiz->lecture_quiz_id !!}" data-lid="{!! $lecturequiz->lecture_quiz_id !!}">{!! $lecturequiz->description !!}</div>
                         </div>
                       </div>
-                      
+
                       <div class="formrow @if(!empty($lecturequiz->description)) hideit @endif" id="editblock{!! $lecturequiz->lecture_quiz_id !!}">
                         <div class="row-fluid">
                           <!-- <div class="col col-lg-3"><label>Lecture Description: </label></div> -->
@@ -417,7 +417,7 @@ $course_id = $course->id;
 
                       <div class="formrow @if(!empty($lecturequiz->description)) hideit @endif" id="editblockfooter{!! $lecturequiz->lecture_quiz_id !!}">
                         <div class="row-fluid">
-                          <div class="col col-lg-12"> 
+                          <div class="col col-lg-12">
                             <input type="button" name="su_course_add_lecture_desc_submit" value="{!! Lang::get('curriculum.sb_save')!!}" class="btn btn-warning su_course_add_lecture_desc_submit"  data-lid="{!! $lecturequiz->lecture_quiz_id !!}">
                             <input type="button" id="btn_description" name="su_course_add_lecture_desc_cancel" value="{!! Lang::get('curriculum.cancel')!!}" class="btn btn-warning su_course_add_lecture_desc_cancel" data-blockid="{!! $lecturequiz->lecture_quiz_id !!}"></div>
                         </div>
@@ -470,7 +470,7 @@ $course_id = $course->id;
                         </div>
                       </div>
                     </div>
-                    
+
                     <!-- list quiz questions start -->
                     <div class="su_course_add_lecture_desc_content @if(!isset($lecturesquizquestions[$section->section_id][$lecturequiz->lecture_quiz_id]) || empty($lecturesquizquestions[$section->section_id][$lecturequiz->lecture_quiz_id])) hideit nondata @endif" id="questionsblock{!! $lecturequiz->lecture_quiz_id !!}">
                       <div class="lecture_buttons lecture_edit_content">
@@ -512,13 +512,13 @@ $course_id = $course->id;
                     <div class="lecturepopup hideit" id="contentques-{!! $lecturequiz->lecture_quiz_id !!}">
                       <div class="quizques">
                         <div class="divtitlehead"><p><strong>{!! Lang::get('curriculum.Questions')!!}</strong></p></div>
-                        
+
                         <div class="formrow margbot">
                           <div class="row-fluid">
                             <div><textarea name="quizquestion" id="quizquestion-{!! $lecturequiz->lecture_quiz_id !!}" class="form-control curricullamEditor"></textarea></div>
                           </div>
                         </div>
-                        
+
                         <div class="divtitlehead"><p><strong>{!! Lang::get('curriculum.Answers')!!}</strong></p></div>
                         <div class="qmultiple hideit" id="multipleques-{!! $lecturequiz->lecture_quiz_id !!}">
                           <div class="divtitlesub"><p>{!! Lang::get('curriculum.ans_writeup')!!}</p></div>
@@ -557,7 +557,7 @@ $course_id = $course->id;
                             </div>
                           </div>
                         </div>
-                        
+
                         <div class="qtruefalse hideit" id="truefalseques-{!! $lecturequiz->lecture_quiz_id !!}">
                           <div class="divtitlesub"><p>{!! Lang::get('curriculum.quiz_msg')!!}</p></div>
                           <div class="formrow">
@@ -573,7 +573,7 @@ $course_id = $course->id;
                         </div>
                         <div class="formrow">
                           <div class="row-fluid">
-                            <input type="button" name="su_course_add_quiz_question_submit" value="{!! Lang::get('curriculum.sb_save')!!}" class="btn btn-warning su_course_add_quiz_question_submit"  data-lid="{!! $lecturequiz->lecture_quiz_id !!}"> 
+                            <input type="button" name="su_course_add_quiz_question_submit" value="{!! Lang::get('curriculum.sb_save')!!}" class="btn btn-warning su_course_add_quiz_question_submit"  data-lid="{!! $lecturequiz->lecture_quiz_id !!}">
                             <input type="hidden" value="0" id="quiztype{!! $lecturequiz->lecture_quiz_id !!}">
                             <input type="hidden" value="0" id="coption{!! $lecturequiz->lecture_quiz_id !!}">
                           </div>
@@ -589,13 +589,13 @@ $course_id = $course->id;
                       <div class="contenteditques" id="contenteditques-{!! $lecturequiz->lecture_quiz_id !!}_{!! $question->quiz_question_id !!}">
                         <div class="quizques">
                           <div class="divtitlehead"><p><strong>{!! Lang::get('curriculum.Questions')!!}</strong></p></div>
-                          
+
                           <div class="formrow margbot">
                             <div class="row-fluid">
                               <div><textarea name="quizquestion" id="quizeditquestion-{!! $lecturequiz->lecture_quiz_id !!}_{!! $question->quiz_question_id !!}" class="form-control curricullamEditor">{!! $question->question !!}</textarea></div>
                             </div>
                           </div>
-                          
+
                           <div class="divtitlehead"><p><strong>{!! Lang::get('curriculum.Answers')!!}</strong></p></div>
                           @if($question->question_type == 0)
                           <div class="qmultiple" id="multipleeditques-{!! $lecturequiz->lecture_quiz_id !!}_{!! $question->quiz_question_id !!}">
@@ -648,7 +648,7 @@ $course_id = $course->id;
                           @endif
                           <div class="formrow">
                             <div class="row-fluid">
-                              <input type="button" name="su_course_add_quiz_question_update" value="{!! Lang::get('curriculum.sb_save')!!}" class="btn btn-warning su_course_add_quiz_question_update" data-lid="{!! $lecturequiz->lecture_quiz_id !!}" data-qid="{!! $question->quiz_question_id !!}"> 
+                              <input type="button" name="su_course_add_quiz_question_update" value="{!! Lang::get('curriculum.sb_save')!!}" class="btn btn-warning su_course_add_quiz_question_update" data-lid="{!! $lecturequiz->lecture_quiz_id !!}" data-qid="{!! $question->quiz_question_id !!}">
                               <input type="hidden" value="{!! $question->question_type !!}" id="quiztype{!! $lecturequiz->lecture_quiz_id !!}_{!! $question->quiz_question_id !!}">
                               <input type="hidden" value="{!! $question->correct_option !!}" id="coption{!! $lecturequiz->lecture_quiz_id !!}_{!! $question->quiz_question_id !!}">
                             </div>
@@ -659,19 +659,19 @@ $course_id = $course->id;
                       @endif
                     </div>
                     <!-- Question edit content end -->
-                    
+
                     <div class="su_course_add_lecture_desc_content quizeditdesc" id="quizeditdesc{!! $lecturequiz->lecture_quiz_id !!}">
                       <div class="divtitlehead"><p><strong> {!! Lang::get('curriculum.Description')!!}</strong></p></div>
                       <textarea name="lectureeditdescription" id="lectureeditdesc-{!! $lecturequiz->lecture_quiz_id !!}" class="form-control curricullamEditor"></textarea>
                       <div class="quizeditdescription" id="quizeditdescription{!! $lecturequiz->lecture_quiz_id !!}">{!! $lecturequiz->description !!}</div>
                     </div>
-                    
+
                   </li>
                   @php $quizcount++; @endphp
                   @endif
                   @endforeach
                   @endif
-                  
+
                   @php $sectioncount++; @endphp
                   @endforeach
                 </ul>
@@ -687,7 +687,7 @@ $course_id = $course->id;
                             <span> {!! Lang::get('curriculum.Add_Lecture')!!}</span>
                           </div>
                         </div>
-                        
+
                       </div>
 
                       <div class="su_course_add_lecture_content su_course_add_content_form">
@@ -792,7 +792,7 @@ $course_id = $course->id;
 
           </div>
         </div>
-      </div> 
+      </div>
 
     </div>
 
@@ -800,11 +800,11 @@ $course_id = $course->id;
 </div>
 </div>
     <!-- curriculum end -->
-    
+
   </div>
 </div>
 
-       
+
       <!-- End Panel Basic -->
 </div>
 
@@ -856,24 +856,24 @@ $(document).bind({
 });
 
 $(document).ready(function(){
-          
+
     $("#btn_lecture").click(function () {
         $('#new_lecture').val('');
-        }); 
+        });
     $("#btn_quiz").click(function () {
-        $('#new_quiz').val('');   
+        $('#new_quiz').val('');
         tinyMCE.activeEditor.setContent("");
-        }); 
+        });
     $("#btn_section").click(function () {
         $('#new_section').val('');
-        }); 
+        });
     $("#btn_lecture").click(function () {
         $('#new_lecture').val('');
-        }); 
+        });
   $(document).on('click','div.cctabs .cctab-link',function(){
     var tab_id = $(this).attr('data-tab');
     var tab_cc = $(this).attr('data-cc');
-    
+
     if(tab_cc == '1'){
       $("#fromlibrary"+tab_id).removeClass('current');
       $("#fromlibrarytab"+tab_id).removeClass('current');
@@ -901,7 +901,7 @@ $(document).ready(function(){
     $('#resresponse'+tab_id+' p').text(" ");
 
   });
-  
+
   $(document).on('input','.chcountfield', function() {
     var len = $(this).val().length;
     var setval = parseInt('80')-parseInt(len);
@@ -912,8 +912,8 @@ $(document).ready(function(){
     var setval = parseInt('600')-parseInt(len);
     $(this).next('.ch-count').text(setval);
   });
-  
-  tinymce.init({  
+
+  tinymce.init({
     mode : "specific_textareas",
     editor_selector : "curricullamEditor",
     theme : "advanced",
@@ -934,18 +934,18 @@ $(document).ready(function(){
 
   $( ".quizquestions" ).sortable({
     handle : '.quessort',
-    update: function(e, ui) { 
+    update: function(e, ui) {
       updatequizsorting($(this).data('lid'));
     }
   });
-  
+
   $( ".su_course_curriculam_sortable ul" ).sortable({
-  
+
   handle : '.sorthandle',
   connectWith : '.su_course_curriculam_sortable ul',
 
-  //  update function 
-  update: function(e, ui) { 
+  //  update function
+  update: function(e, ui) {
 
   // check lecture under section
   if($('.su_course_curriculam_sortable li:first-child').hasClass('childli')) {
@@ -957,7 +957,7 @@ $(document).ready(function(){
     $(this).sortable('cancel');
     $(ui.sender).sortable('cancel');
   }
-   
+
   updatesorting();
 
 
@@ -980,7 +980,7 @@ $(document).ready(function(){
 
     /*
      * Adding new section
-     */ 
+     */
     $('.su_course_add_section_label').click(function(){
       $(this).hide();
       $('.su_course_add_section_content').show();
@@ -1003,14 +1003,14 @@ $(document).ready(function(){
       var courseid=$('[name="course_id"]').val();
       var coursesection=$('[name="coursesection"]').val();
       var _token=$('[name="_token"]').val();
-      
+
       $.ajax ({
         type: "POST",
         url: coursesection,
         data: "&courseid="+courseid+"&section="+sval+"&position="+sno+"&id=0"+"&_token="+_token,
         success: function (msg)
         {
-          
+
           $('.su_course_curriculam_sortable ul').append('<li class="su_gray_curr parentli section-'+msg+'"><div class="row-fluid sorthandle"><div class="col col-lg-12"><div class="su_course_section_label su_gray_curr_block"><div class="edit_option edit_option_section">Section <span class="serialno">'+sno+'</span>: <label  class="slqtitle">'+sval+'</label> <input type="text" maxlength="80" class="chcountfield su_course_update_section_textbox" value="'+sval+'" /><span class="ch-count">'+(80-sval.length)+'</span></div> <input type="hidden" value="'+msg+'" class="sectionid" name="sectionids[]"/> <input type="hidden" value="'+sno+'" class="sectionpos" name="sectionposition[]"/><div class="deletesection" onclick="deletesection('+msg+')"></div><div class="updatesection" onclick="updatesection('+msg+')"></div></div></div></div></li>');
           $('.su_course_add_section_textbox').val('')
           $('.su_course_add_section_label').show();
@@ -1043,7 +1043,7 @@ $(document).ready(function(){
       var courselecture=$('[name="courselecture"]').val();
       var _token=$('[name="_token"]').val();
 
-      
+
       $.ajax ({
         type: "POST",
         url: courselecture,
@@ -1051,7 +1051,7 @@ $(document).ready(function(){
         success: function (msg)
         {
           $('.su_course_add_lecture_submit').prop("disabled", false);
-          
+
           $('.su_course_curriculam_sortable ul').append('<li class="lq_sort su_lgray_curr childli lecture-'+msg+' lecture parent-s-'+sid+'" ><div class="row-fluid sorthandle"><div class="col col-lg-12"><div class="su_course_lecture_label su_lgray_curr_block"><div class="edit_option edit_option_lecture">Lecture <span class="serialno">'+sno+'</span>: <label class="slqtitle">'+sval+'</label> <input type="text" maxlength="80" class="chcountfield su_course_update_lecture_textbox" value="'+sval+'" /><span class="ch-count">'+(80-sval.length)+'</span></div> <input type="hidden" value="'+msg+'" class="lectureid" name="lectureids[]"/> <input type="hidden" value="'+lqno+'" class="lecturepos" name="lectureposition[]"/> <input type="hidden" value="'+sid+'" class="lecturesectionid" name="lecturesectionid"/><div class="deletelecture" onclick="deletelecture('+msg+','+sid+')"></div><div class="updatelecture" onclick="updatelecture('+msg+','+sid+')"></div><div class="lecture_add_content" id="lecture_add_content'+msg+'"> <input type="button" name="lecture_add_content" class="adddescription" value="{!! Lang::get("curriculum.Add_Description") !!}" data-blockid="'+msg+'"> <input type="button" name="lecture_add_content" class="addcontents" value="Add Content" data-blockid="'+msg+'"> <div class="closeheader"><span class="closetext">Select Content Type</span><input type="button" name="lecture_close_content" value="X" class="btn-danger closecontents" data-blockid="'+msg+'"></div></div></div></div></div> <div class="lecturepopup" id="wholeblock-'+msg+'" style="display:none;"><div class="lecturecontent" ><div class="lecture-media"><div class="clearfix"><div class="divli lmedia-video" data-lid="'+msg+'"  alt="video"><div class="lecturemedia"><span>Video</span></div><label>Video</label><div class="innershadow"></div></div><div class="divli lmedia-audio" data-lid="'+msg+'" alt="audio"><div class="lecturemedia"><span>Audio</span></div><label>Audio</label><div class="innershadow"></div></div><!--div class="divli lmedia-presentation" data-lid="'+msg+'" alt="presentation"><div class="lecturemedia"><span>Presentation</span></div><label>Presentation</label><div class="innershadow"></div></div--><div class="divli lmedia-file" data-lid="'+msg+'" alt="file"><div class="lecturemedia"><span>Document</span></div><label>Document</label><div class="innershadow"></div></div><div class="divli lmedia-text" data-lid="'+msg+'" alt="text"><div class="lecturemedia"><span>Text</span></div><label>Text</label><div class="innershadow"></div></div></div></div></div> </div>          <div class="lecturepopup hideit" id="contentpopshow'+msg+'"><div class="lecturecontent_inner ltwovideo"><div class="lecturecontent_video lecturecontent_tab"><div class="lecturecontent_video_content lecturecontent_tab_content"><div id="uploadvideo'+msg+'" class="uploadvideo" style="display: block;"> <div class="cccontainer" id="cccontainer'+msg+'"> <div class="cctabs" id="cctabs'+msg+'"> <div class="cctab-link current" data-cc="1" data-tab="'+msg+'" id="upfiletab'+msg+'">Upload File</div> <div class="cctab-link" data-cc="2" data-tab="'+msg+'" id="fromlibrarytab'+msg+'">Add from Library</div> <div class="cctab-link" data-cc="3" data-tab="'+msg+'" id="externalrestab'+msg+'" style="display:none;">External Resource</div> </div> <div id="upfile'+msg+'" class="cctab-content current"> <div class="row-fluid" id="wholevideos'+msg+'"> <div class="col col-lg-8" id="allbar'+msg+'" style="display:none;"> <div class="luploadvideo-progressbar meter" ><input type="hidden" id="probar_status_'+msg+'" value="0" /><div class="bar" id="probar'+msg+'" style="width:0%"></div></div> </div> <div class="col col-lg-4"> <div class="luploadvideo" id="videosfiles-'+msg+'" style="display:none;"> <input id="luploadvideo" class="videofiles" type="file" name="lecturevideo" data-url="{!! url('courses/lecturevideo/save') !!}/'+msg+'" data-lid="'+msg+'"><span>Upload mp4/mov/avi/flv Video</span></div> <div class="luploadvideo" id="audiofiles-'+msg+'" style="display:none;"> <input id="luploadaudio" class="audiofiles luploadbtn" type="file" name="lectureaudio" data-url="{!! url('courses/lectureaudio/save') !!}/'+msg+'" data-lid="'+msg+'"> <span>Upload mp3/wav Audio</span> </div> <div class="luploadvideo" id="prefiles-'+msg+'" style="display:none;"> <input id="luploadpre" class="prefiles luploadbtn" type="file" name="lecturepre" data-url="{!! url('courses/lecturepre/save') !!}/'+msg+'" data-lid="'+msg+'"> <span>Upload PDF Presentation</span> </div> <div class="luploadvideo" id="docfiles-'+msg+'" style="display:none;"> <input id="luploaddoc" class="docfiles luploadbtn" type="file" name="lecturedoc" data-url="{!! url('courses/lecturedoc/save') !!}/'+msg+'" data-lid="'+msg+'"> <span>Upload PDF Document</span> </div> <div class="luploadvideo" id="resfiles-'+msg+'" style="display:none;"> <input id="luploaddoc" class="resfiles luploadbtn" type="file" name="lectureres" data-url="{!! url('courses/lectureres/save') !!}/'+msg+'" data-lid="'+msg+'"> <span>Upload PDF/DOCX File</span> </div> </div> <div class="col col-lg-12"> <div class="width100"  id="textdescfiles-'+msg+'" style="display:none;"> <textarea name="textdescription" id="textdesc-'+msg+'" class="form-control curricullamEditor"></textarea> <input type="button" name="textsave" value="Save"  class="btn btn-warning savedesctext" data-lid="'+msg+'"> <input type="button" name="canceldesctext" value="Cancel"  class="btn btn-warning canceldesctext" data-lid="'+msg+'"> </div> </div> <div class="clear"></div> <!-- <div class="col col-lg-12 buttongreen30"> <input type="button" class="change_media_btn" value="Change Media" onclick="deletemedia(692)"></div> --> </div> </div> <div id="fromlibrary'+msg+'" class="cctab-content"> <div class="cvideofiles" id="cvideofiles'+msg+'"> @if(isset($uservideos) && !empty($uservideos)) @foreach($uservideos as $video) <div class="cclickable updatelibcontent" id="cvideos'+msg+'_{!! $video->id !!}" data-type="video" data-alt="0" data-lib="{!! $video->id !!}" data-lid="'+msg+'"><i class="fa fa-play-circle-o"></i> {!! $video->video_name !!} ({!! $video->duration !!}) <!--div class="goright cvideodelete" data-lid="'+msg+'" data-rid="{!! $video->id !!}"><i class="goright fa fa-trash-o"></i></div--></div> @endforeach @else <center><em>Library is empty</em></center> @endif </div> <div class="caudiofiles" id="caudiofiles'+msg+'"> @if(isset($useraudios) && !empty($useraudios)) @foreach($useraudios as $audio) <div class="cclickable updatelibcontent" id="caudios'+msg+'_{!! $audio->id !!}" data-type="audio" data-alt="1" data-lib="{!! $audio->id !!}" data-lid="'+msg+'"><i class="fa fa-volume-up"></i> {!! $audio->file_title !!} ({!! $audio->duration !!}) <!--div class="goright caudiodelete" data-lid="'+msg+'" data-rid="{!! $audio->id !!}"><i class="goright fa fa-trash-o"></i></div--></div> @endforeach @else <center><em>Library is empty</em></center> @endif </div> <div class="cprefiles" id="cprefiles'+msg+'"> @if(isset($userpresentation) && !empty($userpresentation)) @foreach($userpresentation as $presentation) <div class="cclickable updatelibcontent" id="cpres'+msg+'_{!! $presentation->id !!}" data-type="presentation" data-alt="5" data-lib="{!! $presentation->id !!}" data-lid="'+msg+'"><i class="fa fa-picture-o"></i> {!! $presentation->file_title !!} ({!! ulearnHelpers::HumanFileSize($presentation->file_size) !!}) <!--div class="goright cpredelete" data-lid="'+msg+'" data-rid="{!! $presentation->id !!}"><i class="goright fa fa-trash-o"></i></div--></div> @endforeach @else <center><em>Library is empty</em></center> @endif </div><div class="cdocfiles" id="cdocfiles'+msg+'"> @if(isset($userdocuments) && !empty($userdocuments)) @foreach($userdocuments as $document) <div class="cclickable updatelibcontent" id="cdocs'+msg+'_{!! $document->id !!}" data-type="file" data-alt="2" data-lib="{!! $document->id !!}" data-lid="'+msg+'"><i class="fa fa-file-text-o"></i> {!! $document->file_title !!} ({!! ulearnHelpers::HumanFileSize($document->file_size) !!}) <!--div class="goright cdocdelete" data-lid="'+msg+'" data-rid="{!! $document->id !!}"><i class="goright fa fa-trash-o"></i></div--></div> @endforeach @else <center><em>Library is empty</em></center> @endif </div> <div class="cresfiles" id="cresfiles'+msg+'"> @if(isset($userresources) && !empty($userresources)) @foreach($userresources as $resource) <div class="cclickable updaterescontent" id="cresources'+msg+'_{!! $resource->id !!}" data-lib="{!! $resource->id !!}" data-lid="'+msg+'"><i class="fa fa-file-text"></i> {!! $resource->file_title !!} ({!! ulearnHelpers::HumanFileSize($resource->file_size) !!}) <!--div class="goright cresdelete" data-lid="'+msg+'" data-rid="{!! $resource->id !!}"><i class="goright fa fa-trash-o"></i></div--></div> @endforeach @else <center><em>Library is empty</em></center> @endif </div> </div> <div id="externalres'+msg+'" class="cctab-content"> <div class="form-group"> <label for="label" class="col-xs-12"><p><strong>Title</strong></p></label> <div class="col-xs-12"> <div><input class="form-control" placeholder="A Descriptive Title" id="exres_title'+msg+'" name="exres_title" type="text" value=""></div> </div> </div> <div class="form-group"> <label for="label" class="col-xs-12"><p><strong>Link</strong></p></label> <div class="col-xs-12"> <div><input class="form-control" placeholder="http://www.sample.com" id="exres_link'+msg+'" name="exres_link" type="text" value=""></div> </div> </div> <div class="form-group"> <div class="col-xs-12"> <div><input type="button" name="su_course_add_res_link_submit" value="Add Link" class="btn btn-warning su_course_add_res_link_submit" data-lid="'+msg+'"></div> </div> </div> </div> </div>  <div class="tips" id="videoresponse'+msg+'"> </div> <div id="resresponse'+msg+'"></div> </div></div></div></div></div>       <div class="su_course_add_lecture_desc_content su_course_add_content_desc_form hideit editing" id="adddescblock-'+msg+'"><div class="divtitlehead"><p><strong>Description</strong></p></div><div class="formrow hideit" id="descblock'+msg+'"><div class="row-fluid"><div class="editdescription" id="descriptions'+msg+'" data-lid="'+msg+'"></div></div></div><div class="formrow" id="editblock'+msg+'"><div class="row-fluid"><div class="col col-lg-12"><textarea name="lecturedescription" id="lecturedesc-'+msg+'" class="form-control curricullamEditor"></textarea></div></div></div><div class="formrow" id="editblockfooter'+msg+'"><div class="row-fluid"><div class="col col-lg-12"> <input type="button" name="su_course_add_lecture_desc_submit" value="Save" class="btn btn-warning su_course_add_lecture_desc_submit" data-lid="'+msg+'"> <input type="button" name="su_course_add_lecture_desc_cancel" value="Cancel" class="btn btn-warning su_course_add_lecture_desc_cancel" data-blockid="'+msg+'"></div></div></div></div>     <div class="su_course_add_lecture_desc_content @if(!isset($lecturesresources[$section->section_id]['+msg+'])) hideit @endif" id="resourceblock'+msg+'"> <div class="divtitlehead"><p><strong>Resources</strong></p></div> <div class="formrow"> <div class="row-fluid resourcefiles"> @if(isset($lecturesresources[$section->section_id]['+msg+'])) @foreach($lecturesresources[$section->section_id]['+msg+'] as $resources) @foreach($resources as $resource) <div id="resources'+msg+'_{!! $resource->id !!}"> @if($resource->file_type == 'link') <i class="fa fa-external-link"></i> {!! $resource->file_title !!} @else <i class="fa fa-download"></i> {!! $resource->file_title !!} ({!! ulearnHelpers::HumanFileSize($resource->file_size) !!}) @endif <div class="goright resdelete" data-lid="'+msg+'" data-rid="{!! $resource->id !!}"><i class="goright fa fa-trash-o"></i></div></div> @endforeach @endforeach @endif </div> </div> </div>     </li>');
           $( ".su_course_curriculam_sortable ul" ).sortable('refresh');
           //$('.su_course_add_lecture_content .col.col-lg-3 span').text(cno);
@@ -1059,7 +1059,7 @@ $(document).ready(function(){
           $('.add_quiz_lecture_part').show();
           $('.su_course_add_lecture_content').hide();
           filesuploadajax();
-          
+
           tinyMCE.execCommand('mceAddControl', false, 'textdesc-'+msg);
           tinyMCE.execCommand('mceAddControl', false, 'lecturedesc-'+msg);
         }
@@ -1089,7 +1089,7 @@ $(document).ready(function(){
       var courseid=$('[name="course_id"]').val();
       var coursequiz=$('[name="coursequiz"]').val();
       var _token=$('[name="_token"]').val();
-      
+
       if(desc != ''){
         $.ajax ({
           type: "POST",
@@ -1104,12 +1104,12 @@ $(document).ready(function(){
             $('.su_course_add_quiz_content').hide();
             $('.su_course_add_quiz_submit').prop("disabled", false);
             tinyMCE.get('quizdesc').setContent('');
-            
+
             $('input[type="radio"]').iCheck({
               checkboxClass: 'icheckbox_square-green',
               radioClass: 'iradio_square-green',
-            }); 
-            
+            });
+
             tinyMCE.execCommand('mceAddControl', false, 'quizquestion-'+msg);
             tinyMCE.execCommand('mceAddControl', false, 'lectureeditdesc-'+msg);
           }
@@ -1117,14 +1117,14 @@ $(document).ready(function(){
       } else {
         alert("{!! Lang::get('curriculum.curriculum_description') !!}");
         $('.su_course_add_quiz_submit').prop("disabled", false);
-      } 
+      }
     } else {
       $('.su_course_add_quiz_textbox').addClass('error');
       $('.su_course_add_quiz_submit').prop("disabled", false);
     }
 
   });
-  
+
   /*
   * Update course section text
   */
@@ -1160,7 +1160,7 @@ $(document).ready(function(){
   */
 
   //lecture
-  
+
   $('.su_course_add_lecture_label').click(function(){
     $('#lecture_title_counter').text('80');
     if($('.su_course_curriculam_sortable li.parentli').length>0) {
@@ -1188,16 +1188,16 @@ $(document).ready(function(){
       alert('{!! Lang::get("curriculum.quiz_message")!!}');
     }
   });
-  
+
   $('.su_course_add_quiz_cancel').click(function(){
     $(this).parents('.su_course_add_quiz_content').hide();
     $('.add_quiz_lecture_part').show();
     $('.su_course_add_quiz_textbox').removeClass('error');
-  });  
+  });
 
-  
-  
-  $(document).on('click','.resdelete',function () { 
+
+
+  $(document).on('click','.resdelete',function () {
     $(this).text('Deleting...');
     var _token=$('[name="_token"]').val();
     var lid = $(this).data('lid');
@@ -1212,18 +1212,18 @@ $(document).ready(function(){
       }
     });
   });
-  
-  $(document).on('click','.addcontents',function () { 
+
+  $(document).on('click','.addcontents',function () {
     $(this).parent('div').children('.addcontents').hide();
     $(this).parent('div').children('.adddescription').hide();
     $(this).parent('div').children('.closeheader').children('.closecontents').show();
     $(this).parent('div').children('.closeheader').children('span.closetext').text('Select Content Type');
     $(this).parent('div').children('.closeheader').show();
     var cid = $(this).data('blockid');
-    if ($('#wholeblock-'+cid).is(':visible')) { 
-      $("#wholeblock-"+cid).hide(); 
-    } 
-    if ($("#wholeblock-"+cid).is(':visible')) { 
+    if ($('#wholeblock-'+cid).is(':visible')) {
+      $("#wholeblock-"+cid).hide();
+    }
+    if ($("#wholeblock-"+cid).is(':visible')) {
       $("#wholeblock-"+cid).hide();
     } else {
       $("#wholeblock-"+cid).show();
@@ -1231,9 +1231,9 @@ $(document).ready(function(){
     $('#contentpopshow'+cid).hide();
   });
 
-  $(document).on('click','.closecontents',function () { 
+  $(document).on('click','.closecontents',function () {
     var cid = $(this).data('blockid');
-    check_process = $('#probar_status_'+cid).val(); 
+    check_process = $('#probar_status_'+cid).val();
     if(check_process==1){
       alert("Please wait untill the process complete.");
       return false;
@@ -1247,13 +1247,13 @@ $(document).ready(function(){
     $(this).parent('div').parent('div').children('.closeheader').children('.closecontents').hide();
     $(this).parent('div').parent('div').children('.closeheader').children('span.closetext').text('');
     $(this).parent('div').parent('div').children('.closeheader').hide();
-    
+
     if($('#adddescblock-'+cid).hasClass("hideit")) {
       $("#adddescblock-"+cid).hide();
     } else {
       $("#adddescblock-"+cid).show();
     }
-    
+
     $("#wholeblock-"+cid).hide();
     if($('#contentpopshow'+cid).hasClass("hideit")) {
       $('#contentpopshow'+cid).hide();
@@ -1267,19 +1267,19 @@ $(document).ready(function(){
     $('#cccontainer'+cid).hide();
   });
 
-  $(document).on('click','.su_course_add_lecture_desc_cancel',function () { 
+  $(document).on('click','.su_course_add_lecture_desc_cancel',function () {
     tinyMCE.activeEditor.setContent("");
     var cid = $(this).attr('data-blockid');
     if($('#contentpopshow'+cid).hasClass('hideit')){
       $('#lecture_add_content'+cid).children('.addcontents').show();
-    } 
+    }
     if($('#adddescblock-'+cid).hasClass('hideit')){
       $('#lecture_add_content'+cid).children('.adddescription').show();
-    } 
+    }
     $('#lecture_add_content'+cid).children('.closeheader').children('.closecontents').hide();
     $('#lecture_add_content'+cid).children('.closeheader').children('span.closetext').text('');
     $('#lecture_add_content'+cid).children('.closeheader').hide();
-    
+
     if($('#adddescblock-'+cid).hasClass("hideit")) {
       $("#adddescblock-"+cid).hide();
       $("#descblock-"+cid).addClass('hideit');
@@ -1291,7 +1291,7 @@ $(document).ready(function(){
       $('#editblock'+cid).addClass('hideit');
       $('#editblockfooter'+cid).addClass('hideit');
     }
-    
+
     $("#wholeblock-"+cid).hide();
     if($('#contentpopshow'+cid).hasClass("hideit")) {
       $('#contentpopshow'+cid).hide();
@@ -1305,7 +1305,7 @@ $(document).ready(function(){
     $('#cccontainer'+cid).hide();
   });
 
-  $(document).on('click','.canceldesctext',function () { 
+  $(document).on('click','.canceldesctext',function () {
     tinyMCE.activeEditor.setContent("");
     var cid = $(this).attr('data-lid');
     if($('#contentpopshow'+cid).hasClass('hideit')){
@@ -1317,7 +1317,7 @@ $(document).ready(function(){
     $('#lecture_add_content'+cid).children('.closeheader').children('.closecontents').hide();
     $('#lecture_add_content'+cid).children('.closeheader').children('span.closetext').text('');
     $('#lecture_add_content'+cid).children('.closeheader').hide();
-            
+
     if($('#adddescblock-'+cid).hasClass("hideit")) {
       $("#adddescblock-"+cid).hide();
       $("#descblock-"+cid).removeClass('hideit');
@@ -1325,7 +1325,7 @@ $(document).ready(function(){
       $("#adddescblock-"+cid).show();
       $("#descblock-"+cid).addClass('hideit');
     }
-    
+
     $("#wholeblock-"+cid).hide();
     if($('#contentpopshow'+cid).hasClass("hideit")) {
       $('#contentpopshow'+cid).hide();
@@ -1338,8 +1338,8 @@ $(document).ready(function(){
     }
     $('#cccontainer'+cid).hide();
   });
-  
-  $(document).on('click','.adddescription',function () { 
+
+  $(document).on('click','.adddescription',function () {
     $(this).parent('div').children('.addcontents').hide();
     $(this).parent('div').children('.adddescription').hide();
     $(this).parent('div').children('.closeheader').children('.closecontents').show();
@@ -1347,15 +1347,15 @@ $(document).ready(function(){
     $(this).parent('div').children('.closeheader').show();
     var cid = $(this).data('blockid');
     $('#contentpopshow'+cid).hide();
-    if ($('#adddescblock-'+cid).is(':visible')) { 
-      $("#adddescblock-"+cid).hide(); 
-    } 
-    if ($("#adddescblock-"+cid).is(':visible')) { 
+    if ($('#adddescblock-'+cid).is(':visible')) {
+      $("#adddescblock-"+cid).hide();
+    }
+    if ($("#adddescblock-"+cid).is(':visible')) {
       $("#adddescblock-"+cid).hide();
     } else {
-      $("#adddescblock-"+cid).show(); 
+      $("#adddescblock-"+cid).show();
 
-    } 
+    }
   });
 
   $(document).on('click','.su_course_add_lecture_desc_submit',function(){
@@ -1369,7 +1369,7 @@ $(document).ready(function(){
         url: courselecturedesc,
         data: "courseid="+$('[name="course_id"]').val()+"&lecturedescription="+text+"&lid="+lid+"&_token="+_token,
         success: function (msg)
-        { 
+        {
           if($('#contentpopshow'+lid).hasClass("hideit")) {
             $('#contentpopshow'+lid).hide();
             $('#videoresponse'+lid).hide();
@@ -1519,7 +1519,7 @@ $(document).ready(function(){
       $('#textdescfiles-'+mid).hide();
       $('#lecture_add_content'+mid).find('.closeheader span.closetext').text('Add Video');
       $('#cctabs'+mid).show();
-      
+
       $('#cccontainer'+mid).show();
       $('#upfile'+mid).addClass('current');
       $('#fromlibrary'+mid).removeClass('current');
@@ -1555,7 +1555,7 @@ $(document).ready(function(){
       $('#textdescfiles-'+mid).hide();
       $('#lecture_add_content'+mid).find('.closeheader span.closetext').text('Add Audio');
       $('#cctabs'+mid).show();
-      
+
       $('#cccontainer'+mid).show();
       $('#upfile'+mid).addClass('current');
       $('#fromlibrary'+mid).removeClass('current');
@@ -1591,7 +1591,7 @@ $(document).ready(function(){
       $('#textdescfiles-'+mid).hide();
       $('#lecture_add_content'+mid).find('.closeheader span.closetext').text('Add Presentation');
       $('#cctabs'+mid).show();
-      
+
       $('#cccontainer'+mid).show();
       $('#cvideofiles'+mid).hide();
       $('#caudiofiles'+mid).hide();
@@ -1625,7 +1625,7 @@ $(document).ready(function(){
       $('#textdescfiles-'+mid).hide();
       $('#lecture_add_content'+mid).find('.closeheader span.closetext').text('Add Document');
       $('#cctabs'+mid).show();
-      
+
       $('#cccontainer'+mid).show();
       $('#cvideofiles'+mid).hide();
       $('#caudiofiles'+mid).hide();
@@ -1659,7 +1659,7 @@ $(document).ready(function(){
       $('#videosfiles-'+mid).hide();
       $('#lecture_add_content'+mid).find('.closeheader span.closetext').text('Add Text');
       $('#cctabs'+mid).hide();
-      
+
       $('#cccontainer'+mid).show();
       $('#cvideofiles'+mid).hide();
       $('#caudiofiles'+mid).hide();
@@ -1692,7 +1692,7 @@ $(document).ready(function(){
       $("#lecture_add_content"+mid).find('.closeheader .closecontents').show();
       $("#lecture_add_content"+mid).find('.closeheader span.closetext').text("{!! Lang::get('curriculum.Add_Resource') !!}");
       $("#lecture_add_content"+mid).find('.closeheader').show();
-      
+
       $('#cccontainer'+mid).show();
       $('#upfile'+mid).addClass('current');
       $('#fromlibrary'+mid).removeClass('current');
@@ -1704,7 +1704,7 @@ $(document).ready(function(){
     }
 
   });
-  
+
 
   $(document).on('click','.editlectcontent',function(){
     var mid = $(this).data('blockid');
@@ -1719,7 +1719,7 @@ $(document).ready(function(){
     // alert(attr);
     // alert(mid);
     if(attr=='video'){
-      
+
       $('#externalrestab'+mid).hide();
       $("#wholeblock-"+mid).hide();
       $("#videoresponse"+mid).hide();
@@ -1728,7 +1728,7 @@ $(document).ready(function(){
       $("#lecture_add_content"+mid).find('.closeheader .closecontents').show();
       $("#lecture_add_content"+mid).find('.closeheader span.closetext').text('Edit Video');
       $("#lecture_add_content"+mid).find('.closeheader').show();
-      
+
       $('#contentpopshow'+mid).show();
       $('#allbar'+mid).show();
       $("#wholevideos"+mid).removeClass('hideit');
@@ -1740,15 +1740,15 @@ $(document).ready(function(){
       $('#resfiles-'+mid).hide();
       $('#textdescfiles-'+mid).hide();
       $('#cctabs'+mid).show();
-      
+
       $('#cvideofiles'+mid).show();
       $('#caudiofiles'+mid).hide();
       $('#cprefiles'+mid).hide();
       $('#cdocfiles'+mid).hide();
       $('#cresfiles'+mid).hide();
-      
+
     } else if(attr=='audio'){
-      
+
       $('#externalrestab'+mid).hide();
       $("#wholeblock-"+mid).hide();
       $("#videoresponse"+mid).hide();
@@ -1756,7 +1756,7 @@ $(document).ready(function(){
       $("#lecture_add_content"+mid).find('.closeheader .closecontents').show();
       $("#lecture_add_content"+mid).find('.closeheader span.closetext').text('Edit Audio');
       $("#lecture_add_content"+mid).find('.closeheader').show();
-      
+
       $('#contentpopshow'+mid).show();
       $('#allbar'+mid).show();
       $("#wholevideos"+mid).removeClass('hideit');
@@ -1768,15 +1768,15 @@ $(document).ready(function(){
       $('#resfiles-'+mid).hide();
       $('#textdescfiles-'+mid).hide();
       $('#cctabs'+mid).show();
-      
+
       $('#cvideofiles'+mid).hide();
       $('#caudiofiles'+mid).show();
       $('#cprefiles'+mid).hide();
       $('#cdocfiles'+mid).hide();
       $('#cresfiles'+mid).hide();
-      
+
     } else if(attr=='presentation'){
-      
+
       $('#externalrestab'+mid).hide();
       $("#wholeblock-"+mid).hide();
       $("#videoresponse"+mid).hide();
@@ -1784,7 +1784,7 @@ $(document).ready(function(){
       $("#lecture_add_content"+mid).find('.closeheader .closecontents').show();
       $("#lecture_add_content"+mid).find('.closeheader span.closetext').text('Edit Document');
       $("#lecture_add_content"+mid).find('.closeheader').show();
-      
+
       $('#contentpopshow'+mid).show();
       $('#allbar'+mid).show();
       $("#wholevideos"+mid).removeClass('hideit');
@@ -1796,15 +1796,15 @@ $(document).ready(function(){
       $('#resfiles-'+mid).hide();
       $('#textdescfiles-'+mid).hide();
       $('#cctabs'+mid).show();
-      
+
       $('#cvideofiles'+mid).hide();
       $('#caudiofiles'+mid).hide();
       $('#cprefiles'+mid).show();
       $('#cdocfiles'+mid).hide();
       $('#cresfiles'+mid).hide();
-      
+
     } else if(attr=='file'){
-      
+
       $('#externalrestab'+mid).hide();
       $("#wholeblock-"+mid).hide();
       $("#videoresponse"+mid).hide();
@@ -1812,7 +1812,7 @@ $(document).ready(function(){
       $("#lecture_add_content"+mid).find('.closeheader .closecontents').show();
       $("#lecture_add_content"+mid).find('.closeheader span.closetext').text('Edit Document');
       $("#lecture_add_content"+mid).find('.closeheader').show();
-      
+
       $('#contentpopshow'+mid).show();
       $('#allbar'+mid).show();
       $("#wholevideos"+mid).removeClass('hideit');
@@ -1824,18 +1824,18 @@ $(document).ready(function(){
       $('#resfiles-'+mid).hide();
       $('#textdescfiles-'+mid).hide();
       $('#cctabs'+mid).show();
-      
+
       $('#cvideofiles'+mid).hide();
       $('#caudiofiles'+mid).hide();
       $('#cprefiles'+mid).hide();
       $('#cdocfiles'+mid).show();
       $('#cresfiles'+mid).hide();
-      
+
     } else if(attr=='text'){
-    
+
       var getltext = $('#lecture_contenttext'+mid).html();
       tinyMCE.get('textdesc-'+mid).setContent(getltext);
-      
+
       $('#externalrestab'+mid).hide();
       $("#wholeblock-"+mid).hide();
       $("#videoresponse"+mid).hide();
@@ -1843,7 +1843,7 @@ $(document).ready(function(){
       $("#lecture_add_content"+mid).find('.closeheader .closecontents').show();
       $("#lecture_add_content"+mid).find('.closeheader span.closetext').text('Edit Text');
       $("#lecture_add_content"+mid).find('.closeheader').show();
-      
+
       $('#contentpopshow'+mid).show();
       $("#wholevideos"+mid).removeClass('hideit');
       $("#wholevideos"+mid).show();
@@ -1855,7 +1855,7 @@ $(document).ready(function(){
       $('#resfiles-'+mid).hide();
       $('#videosfiles-'+mid).hide();
       $('#cctabs'+mid).hide();
-      
+
       $('#cvideofiles'+mid).hide();
       $('#caudiofiles'+mid).hide();
       $('#cprefiles'+mid).hide();
@@ -1864,7 +1864,7 @@ $(document).ready(function(){
     }
 
   });
-  
+
   $(document).on('click','.updatelibcontent',function(){
     var lid = $(this).attr('data-lid');
     var lib = $(this).attr('data-lib');
@@ -1916,7 +1916,7 @@ $(document).ready(function(){
       }
     });
   });
-  
+
   $(document).on('click','.updaterescontent',function(){
     var lid = $(this).attr('data-lid');
     var lib = $(this).attr('data-lib');
@@ -1944,7 +1944,7 @@ $(document).ready(function(){
       }
     });
   });
-  
+
   $(document).on('click','.su_course_add_res_link_submit',function(){
     var lid = $(this).attr('data-lid');
     var title = $('#exres_title'+lid).val();
@@ -1982,7 +1982,7 @@ $(document).ready(function(){
             $('#exres_title'+lid).val("");
             $('#exres_link'+lid).val("");
           }else{
-            
+
           }
         }
       });
@@ -1990,17 +1990,17 @@ $(document).ready(function(){
       alert('{!! Lang::get("curriculum.curriculum_empty")!!}');
     }
   });
-  
+
   $(document).on('click','.vid_preview',function(){
     var lid = $(this).data('id');
     $("#video_preview"+lid).slideToggle();
   });
-  
+
   $(document).on('click','.aud_preview',function(){
     var lid = $(this).data('id');
     $("#audio_preview"+lid).slideToggle();
   });
-  
+
   $(document).on('click','.savedesctext',function(){
     var lid = $(this).data('lid');
     var text = $.trim(tinyClean(tinyMCE.get('textdesc-'+lid).getContent()));
@@ -2022,7 +2022,7 @@ $(document).ready(function(){
             $('#videoresponse'+lid).show();
             if($('#adddescblock-'+lid).hasClass('hideit')){
               $("#lecture_add_content"+lid).find('.adddescription').show();
-            } 
+            }
             $('#lecture_add_content'+lid).find('.closeheader .closecontents').hide();
             $('#lecture_add_content'+lid).find('.closeheader span.closetext').text('');
             $('#lecture_add_content'+lid).find('.closeheader').hide();
@@ -2040,7 +2040,7 @@ $(document).ready(function(){
     }
   });
   });
-  
+
 
 filesuploadajax();
 
@@ -2052,7 +2052,7 @@ function filesuploadajax(){
     maxFileSize: 4096000000, // 4 GB
     progress: function (e, data) {
       // console.log(data);
-      
+
       $("#videoresponse"+data.lid).text("");
       $('#probar_status_'+data.lid).val(1);
       var percentage = parseInt(data.loaded / data.total * 100);
@@ -2064,7 +2064,7 @@ function filesuploadajax(){
     processfail: function (e, data) {
       file_name = data.files[data.index].name;
       $('#probar_status_'+data.lid).val(0);
-      alert("{!! Lang::get('curriculum.lecture_video_file')!!}"); 
+      alert("{!! Lang::get('curriculum.lecture_video_file')!!}");
     },
     done: function(e, data){
       var return_data = $.parseJSON( data.result );
@@ -2077,7 +2077,7 @@ function filesuploadajax(){
         $('#videoresponse'+data.lid).show();
         if($('#adddescblock-'+data.lid).hasClass('hideit')){
           $("#lecture_add_content"+data.lid).find('.adddescription').show();
-        } 
+        }
         $('#lecture_add_content'+data.lid).find('.closeheader .closecontents').hide();
         $('#lecture_add_content'+data.lid).find('.closeheader span.closetext').text('');
         $('#lecture_add_content'+data.lid).find('.closeheader').hide();
@@ -2088,7 +2088,7 @@ function filesuploadajax(){
         $('#probar_status_'+data.lid).val(0);
         //<video class="video-js vjs-default-skin" controls preload="auto" data-setup="{}"><source src="'+return_data.file_link+'" type="video/webm" id="videosource"></video>
       }else{
-        
+
       }
 
     }
@@ -2112,7 +2112,7 @@ function filesuploadajax(){
     processfail: function (e, data) {
       file_name = data.files[data.index].name;
       $('#probar_status_'+data.lid).val(0);
-      alert("{!! Lang::get('curriculum.lecture_audio_file')!!}");     
+      alert("{!! Lang::get('curriculum.lecture_audio_file')!!}");
     },
     done: function(e, data){
       var return_data = $.parseJSON( data.result );
@@ -2125,7 +2125,7 @@ function filesuploadajax(){
         $('#videoresponse'+data.lid).show();
         if($('#adddescblock-'+data.lid).hasClass('hideit')){
           $("#lecture_add_content"+data.lid).find('.adddescription').show();
-        } 
+        }
         $('#lecture_add_content'+data.lid).find('.closeheader .closecontents').hide();
         $('#lecture_add_content'+data.lid).find('.closeheader span.closetext').text('');
         $('#lecture_add_content'+data.lid).find('.closeheader').hide();
@@ -2140,7 +2140,7 @@ function filesuploadajax(){
         $("#videoresponse"+data.lid).append('<div class="lecture_main_content_first_block1"><div class="lc_details imagetype-audio"><div class="lecture_title"><p>'+return_data.file_title+'</p><p>'+return_data.duration+'</p><p><span class="cclickable aud_preview text-default" data-id="'+data.lid+'"><i class="fa fa-play"></i> Audio Preview</span></p></div><div class="lecture_buttons"><div class="lecture_edit_content" id="lecture_edit_content'+data.lid+'"> <input type="button" name="lecture_edit_content" class="btn btn-default editlectcontent" value="{!! Lang::get("curriculum.Edit_Content") !!}" data-blockid="'+data.lid+'" data-alt="audio"> <input type="button" name="lecture_resource_content" class="btn btn-info addresource" value="{!! Lang::get("curriculum.Add_Resource") !!}" data-blockid="'+data.lid+'" data-alt="resource"> <input type="button" name="lecture_publish_content" class="btn btn-warning publishcontent" value="{!! Lang::get("curriculum.Publish")!!}" data-blockid="'+data.lid+'"></div></div><div class="media_preview" id="audio_preview'+data.lid+'">'+audiopart+'</div></div></div>');
         $('#probar_status_'+data.lid).val(0);
       }else{
-        
+
       }
 
     }
@@ -2164,7 +2164,7 @@ function filesuploadajax(){
     processfail: function (e, data) {
       file_name = data.files[data.index].name;
       $('#probar_status_'+data.lid).val(0);
-      alert("{!! Lang::get('curriculum.lecture_pdf_file')!!}");   
+      alert("{!! Lang::get('curriculum.lecture_pdf_file')!!}");
     },
     done: function(e, data){
       var return_data = $.parseJSON( data.result );
@@ -2177,7 +2177,7 @@ function filesuploadajax(){
         $('#videoresponse'+data.lid).show();
         if($('#adddescblock-'+data.lid).hasClass('hideit')){
           $("#lecture_add_content"+data.lid).find('.adddescription').show();
-        } 
+        }
         $('#lecture_add_content'+data.lid).find('.closeheader .closecontents').hide();
         $('#lecture_add_content'+data.lid).find('.closeheader span.closetext').text('');
         $('#lecture_add_content'+data.lid).find('.closeheader').hide();
@@ -2211,7 +2211,7 @@ function filesuploadajax(){
     processfail: function (e, data) {
       $('#probar_status_'+data.lid).val(0);
       file_name = data.files[data.index].name;
-      alert("{!! Lang::get('curriculum.lecture_pdf_file')!!}");     
+      alert("{!! Lang::get('curriculum.lecture_pdf_file')!!}");
     },
     done: function(e, data){
       var return_data = $.parseJSON( data.result );
@@ -2224,7 +2224,7 @@ function filesuploadajax(){
         $('#videoresponse'+data.lid).show();
         if($('#adddescblock-'+data.lid).hasClass('hideit')){
           $("#lecture_add_content"+data.lid).find('.adddescription').show();
-        } 
+        }
         $('#lecture_add_content'+data.lid).find('.closeheader .closecontents').hide();
         $('#lecture_add_content'+data.lid).find('.closeheader span.closetext').text('');
         $('#lecture_add_content'+data.lid).find('.closeheader').hide();
@@ -2238,7 +2238,7 @@ function filesuploadajax(){
       }
 
     }
-  }); 
+  });
 
   $('.resfiles').fileupload({
     autoUpload: true,
@@ -2258,7 +2258,7 @@ function filesuploadajax(){
     processfail: function (e, data) {
       $('#probar_status_'+data.lid).val(0);
       file_name = data.files[data.index].name;
-      alert("{!! Lang::get('curriculum.lecture_file_not_allowed')!!}");   
+      alert("{!! Lang::get('curriculum.lecture_file_not_allowed')!!}");
   },
     done: function(e, data){
       var return_data = $.parseJSON( data.result );
@@ -2267,7 +2267,7 @@ function filesuploadajax(){
         $("#resresponse"+data.lid).text("");
         $('#probar'+data.lid).css('width','0%');
         $("#wholevideos"+data.lid).hide();
-        $('#videoresponse'+data.lid).show();            
+        $('#videoresponse'+data.lid).show();
         $("#lecture_add_content"+data.lid).find('.adddescription').hide();
         $("#lecture_add_content"+data.lid).find('.closecontents').show();
         $('#resourceblock'+data.lid).show();
@@ -2294,11 +2294,11 @@ function deletesection(id) {
     data: "&courseid="+$('[name="course_id"]').val()+"&sid="+id+"&_token="+_token,
     success: function (msg)
     {
-      
+
       $('.section-'+id).remove();
       $('.parent-s-'+id).remove();
       var x=1;
-      $('.su_course_curriculam_sortable .su_gray_curr').each(function(){  
+      $('.su_course_curriculam_sortable .su_gray_curr').each(function(){
         $(this).find('.serialno').text(x);
         $(this).find('.sectionpos').val(x);
         x++;
@@ -2350,7 +2350,7 @@ function deletelecture(id,sid) {
     data: "&courseid="+$('[name="course_id"]').val()+"&lid="+id+"&_token="+_token,
     success: function (msg)
     {
-      
+
       $('.lecture-'+id).remove();
       var x=1;
       $('.section-'+sid).nextUntil('.parentli', '.childli' ).each(function(){
@@ -2379,7 +2379,7 @@ function deletequiz(id,sid) {
     data: "&courseid="+$('[name="course_id"]').val()+"&lid="+id+"&_token="+_token,
     success: function (msg)
     {
-      
+
       $('.quiz-'+id).remove();
       var x=1;
       $('.section-'+sid).nextUntil('.parentli', '.quiz' ).each(function(){
@@ -2435,14 +2435,14 @@ function updatesorting() {
   var lq=1;
   var y=1;
   var l=1;
-  
+
   var sec_id = '';
   // Adding roll numbers for section and lectures
   $('.su_course_curriculam_sortable ul li').each(function(){
-  
+
     if($(this).hasClass('parentli')){
       sec_id = $(this).find('.sectionid').val();
-      
+
       $(this).find('.serialno').text(x);
       $(this).find('.sectionpos').val(x);
       var section= $(this).find('label').text();
@@ -2457,28 +2457,28 @@ function updatesorting() {
       $(this).find('.serialno').text(y);
       $(this).find('.lecturepos').val(lq);
       $(this).find('.lecturesectionid').val(sec_id);
-      
+
       var lid=$(this).find('.lectureid').val();
-      
+
       $('.lecture-'+lid).removeClass('parent-s-'+oldsid);
       $('.lecture-'+lid).addClass('parent-s-'+sec_id);
       $('.lecture-'+lid+' .deletelecture').attr('onclick','deletelecture('+lid+','+sec_id+')');
       $('.lecture-'+lid+' .updatelecture').attr('onclick','updatelecture('+lid+','+sec_id+')');
-      
+
       updatelecturequiz.push({
         sectionid: sec_id,
         id: lid,
         position: lq
-      }); 
+      });
       y++;
       lq++;
     } else if($(this).hasClass('quiz')){
       var oldsid=$(this).find('.quizsectionid').val();
-        
+
       $(this).find('.serialno').text(l);
       $(this).find('.quizpos').val(lq);
       $(this).find('.quizsectionid').val(sec_id)
-      
+
       var lid=$(this).find('.quizid').val();
 
       $('.quiz-'+lid).removeClass('parent-s-'+oldsid);
@@ -2489,19 +2489,19 @@ function updatesorting() {
         sectionid: sec_id,
         id: lid,
         position: lq
-      }); 
+      });
       l++;
       lq++;
-    } 
+    }
   });
-  
+
   // update the section position to db
   $.ajax ({
     type: "POST",
     url: $('[name="coursecurriculumsort"]').val(),
     data:{sectiondata: updatesection,_token:$('[name="_token"]').val(),type:'section'},
   });
-  
+
   // update the lecture position to db
   $.ajax ({
     type: "POST",
@@ -2522,12 +2522,12 @@ function tinyClean(value) {
 //check url validation
 function checkURL(link){
   var regexp = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
-    return regexp.test(link); 
+    return regexp.test(link);
 }
 
 $('body').on('click','.cclickable',function(){
 
-  if(!$(this).hasClass('updaterescontent')) 
+  if(!$(this).hasClass('updaterescontent'))
   {
     var id = $(this).attr('data-lid');
     if(id==null)

@@ -5,7 +5,7 @@
         <!-- banner start -->
         <div class="subpage-slide-blue">
             <div class="container">
-                <h1>Subscription Status</h1>
+                <h1>Status da Inscrição</h1>
             </div>
         </div>
         <!-- banner end -->
@@ -15,7 +15,7 @@
                 <div class="container">
                   <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Subscription Status</li>
+                    <li class="breadcrumb-item active" aria-current="page">Status</li>
                   </ol>
                 </div>
             </div>

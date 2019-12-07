@@ -15,7 +15,7 @@
             <div class="container">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">My Courses</li>
+                <li class="breadcrumb-item active" aria-current="page">Cursos</li>
               </ol>
             </div>
         </div>
@@ -65,7 +65,7 @@
                     <div class="row">
                     <div class="col-12 not-found-col">
                             <span><b>2<span class="blue">0</span>4</b></span>
-                            <h3>Sorry! No courses added to your account</h3>
+                            <h3>Nenhum curso adicionado a sua conta</h3>
                             <a href="{{ route('course.list') }}" class="btn btn-ulearn-cview mt-3">Explorar Cursos</a>
                     </div>
                     </div>

@@ -206,7 +206,7 @@
 
                     <div class="cf-pricing">
                         <span>Preço:</span>
-                        <button class="cf-pricing-btn btn">{{ $course->price ? 'PAID' : 'FREE' }}</button>
+                        <button class="cf-pricing-btn btn">{{ $course->price ? 'PAGO' : 'GRÁTIS' }}</button>
                     </div>
 
                     <ul class="list-unstyled cf-pricing-li">

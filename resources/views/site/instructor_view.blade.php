@@ -20,9 +20,9 @@
                   </ol>
                 </div>
             </div>
-        
+
         <!-- breadcrumb end -->
-        
+
         <div class="container mt-5">
             <div class="row mt-4">
                 <div class="col-xl-3 col-lg-4 col-md-5 d-none d-md-block">
@@ -46,7 +46,7 @@
                                             <i class="fab fa-twitter"></i>
                                         </a>
                                     </li>
-                                    
+
                                     <li>
                                         <a href="{{ $instructor->link_googleplus }}" target="_blank">
                                             <i class="fab fa-google-plus-g"></i>
@@ -55,8 +55,8 @@
                                 </ul>
                             </div>
                             <ul class="list-unstyled cf-pricing-li">
-                                <li><i class="fa fa-chalkboard"></i>{{ $metrics['courses'] }} Courses</li>
-                                <li><i class="fas fa-bullhorn"></i>Lectures: {{ $metrics['lectures'] }}</li>
+                                <li><i class="fa fa-chalkboard"></i>{{ $metrics['courses'] }} Cursos</li>
+                                {{-- <li><i class="fas fa-bullhorn"></i>Lectures: {{ $metrics['lectures'] }}</li> --}}
                                 <li><i class="far fa-play-circle"></i>Videos: {{ $metrics['videos'] }}</li>
                             </ul>
                         </main>
@@ -64,7 +64,7 @@
 
                     <div class="rightRegisterForm ml-0">
                         <div class="box-header">
-                            Drop a Message
+                            Enviar mensagem
                         </div>
                         <div class="px-4 py-2">
                             <form class="form-horizontal" method="POST" action="{{ route('contact.instructor') }}" id="instructorForm">
@@ -72,22 +72,22 @@
                                 <input type="hidden" name="instructor_email" value="{{ $instructor->contact_email }}">
                                 <div class="form-group">
                                     <div class="form-group">
-                                    <label>Full Name</label>
-                                    <input type="text" class="form-control form-control-sm" placeholder="Name" name="full_name">
+                                    <label>Nome</label>
+                                    <input type="text" class="form-control form-control-sm" placeholder="Nome" name="full_name">
                                 </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Email ID</label>
-                                    <input type="text" class="form-control form-control-sm" placeholder="Email ID" name="email_id">
+                                    <label>Email</label>
+                                    <input type="text" class="form-control form-control-sm" placeholder="Email" name="email_id">
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Message</label>
-                                    <textarea class="form-control form-control" placeholder="Message" name="message"></textarea>
+                                    <label>Mensagem</label>
+                                    <textarea class="form-control form-control" placeholder="Escrever mensagem" name="message"></textarea>
                                 </div>
 
                                 <div class="form-group mt-4">
-                                    <button type="submit" class="btn btn-lg btn-block login-page-button">Send Message</button>
+                                    <button type="submit" class="btn btn-lg btn-block login-page-button">Enviar</button>
                                 </div>
                             </form>
 
@@ -111,14 +111,14 @@
                         </div>
                     </div>
 
-                    <h4 class="mt-4">Biography</h4>
+                    <h4 class="mt-4">Biografia</h4>
                     {!! $instructor->biography !!}
                     <hr class="mt-4">
                     @if(count($instructor->courses) > 0)
                     <div class="row">
                         <div class="col-12 text-center seperator-head mt-0">
-                            <h4>Courses</h4>
-                            <p class="mt-3">Courses taught by {{ $instructor->first_name.' '.$instructor->last_name }}</p>
+                            <h4>Cursos</h4>
+                            <p class="mt-3">Cursos Criados por {{ $instructor->first_name.' '.$instructor->last_name }}</p>
                         </div>
                     </div>
 
@@ -131,13 +131,13 @@
                                 <main>
                                     <img src="@if(Storage::exists($course->thumb_image)){{ Storage::url($course->thumb_image) }}@else{{ asset('backend/assets/images/course_detail_thumb.jpg') }}@endif">
                                     <div class="col-md-12"><h6 class="course-title">{{ $course->course_title }}</h6></div>
-                                    
-                                    <div class="instructor-clist">
+
+                                    {{-- <div class="instructor-clist">
                                         <div class="col-md-12">
                                             <i class="fa fa-chalkboard-teacher"></i>&nbsp;
-                                            <span>Created by <b>{{ $course->first_name.' '.$course->last_name }}</b></span>
+                                            <span> <b>{{ $course->first_name.' '.$course->last_name }}</b></span>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </main>
                                 <footer>
                                     <div class="c-row">
@@ -154,7 +154,7 @@
                                         </div>
                                     </div>
                                 </footer>
-                             </a>   
+                             </a>
                             </div>
                         </div>
                     @endforeach
@@ -164,7 +164,7 @@
                 </div>
             </div>
         </div>
-        
+
     <!-- content end -->
 @endsection
 

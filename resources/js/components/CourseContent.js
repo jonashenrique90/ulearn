@@ -26,7 +26,7 @@ export default class CourseContent extends Component {
             }
         }
         completedStatus(){
-            
+
             if(this.state.is_completed == true)
             {
                 return (
@@ -38,7 +38,7 @@ export default class CourseContent extends Component {
             } else if(this.state.is_completed == false) {
                 return (
                         <button is_completed={this.props.lecture.completion_status ? 1 : 0} className="btn btn-success" onClick={this.handleClick.bind(this)}>
-                            Mark as completed
+                            Marcar como completo
                        </button>
                     );
             }
@@ -61,21 +61,21 @@ export default class CourseContent extends Component {
                           <source src={storage_url+"/"+this.props.lecture.course_id+"/"+this.props.lecture.file_name+"."+this.props.lecture.file_extension} type="audio/mpeg" />
                         </audio>
                     </div>
-                ); 
+                );
             } else if(this.props.lecture.media_type == 2)
             {
                 return (
                     <div className="col mt-4">
                         <iframe src={site_url+"/readPDF/"+this.props.lecture.media} width="100%" height="450px"></iframe>
                     </div>
-                ); 
+                );
             } else if(this.props.lecture.media_type == 3)
             {
                 return (
                     <div className="col mt-4">
                         <div dangerouslySetInnerHTML={{ __html: this.props.lecture.contenttext }} />
                     </div>
-                ); 
+                );
             }
         }
         next()
@@ -121,7 +121,7 @@ export default class CourseContent extends Component {
         render() {
             return (
                 <div className="page-content container-fluid">
-                    
+
                     <div className="row">
                        <div className="col-xl-6 col-md-12 col-sm-12 col-12">
                            <h1 className="page-title">{this.props.lecture.section_title}</h1>
@@ -137,13 +137,12 @@ export default class CourseContent extends Component {
                            {this.completedStatus()}
                         </div>
                     </div>
-                    
+
                     <div className="row media-container">
                         {this.lectureFile()}
                     </div>
-                    
+
                 </div>
             );
     }
 }
-

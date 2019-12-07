@@ -1,6 +1,6 @@
 @extends('layouts.frontend.index')
 @section('content')
-<?php 
+<?php
     $get = '';
     $link = Request::url();
     $i = $j = 0;
@@ -17,9 +17,9 @@
         }
         else
         {
-            $get .= ($i == 0) ? '?'.$key.'='.$value : '&'.$key.'='.$value;    
+            $get .= ($i == 0) ? '?'.$key.'='.$value : '&'.$key.'='.$value;
         }
-        
+
       }
         if(is_array($value))
         {
@@ -30,9 +30,9 @@
         }
         else
         {
-            $link .= ($j == 0) ? '?'.$key.'='.$value : '&'.$key.'='.$value;   
+            $link .= ($j == 0) ? '?'.$key.'='.$value : '&'.$key.'='.$value;
         }
-      
+
     $i++;
     $j++;
     endforeach;
@@ -42,7 +42,7 @@
         <!-- banner start -->
         <div class="subpage-slide-blue">
             <div class="container">
-                <h1>Course List</h1>
+                <h1>Lista de Cursos</h1>
             </div>
         </div>
         <!-- banner end -->
@@ -52,27 +52,27 @@
                 <div class="container">
                   <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Course List</li>
+                    <li class="breadcrumb-item active" aria-current="page">Lista</li>
                   </ol>
                 </div>
             </div>
-        
+
         <!-- breadcrumb end -->
         <div class="container mt-5">
             <div class="row">
                 <!-- filter start -->
                 <div class="col-xl-2 col-lg-2 col-md-3 d-none d-md-block">
                 <form method="GET" action="{{ route('course.list') }}" id="courseList">
-                    <span class="blue-title">Filter Results</span>
+                    <span class="blue-title">Filtrar Resultados</span>
                     @if($_GET)
-                    <a href="{{ route('course.list') }}" class="clear-filters"><i class="fa fa-sync"></i>&nbsp;Clear filters</a>
+                    <a href="{{ route('course.list') }}" class="clear-filters"><i class="fa fa-sync"></i>&nbsp;Limpar</a>
                     @endif
-                    <h6 class="mt-2 underline-heading">Categories</h6>
+                    <h6 class="mt-2 underline-heading">Categorias</h6>
                     <ul class="ul-no-padding">
                         @foreach ($categories as $category)
-                        <li> 
+                        <li>
                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input filter-results" id="{{ 'cat-'.$category->id }}" name="category_id[]" value="{{ $category->id }}" 
+                                <input type="checkbox" class="custom-control-input filter-results" id="{{ 'cat-'.$category->id }}" name="category_id[]" value="{{ $category->id }}"
                                 @if(isset($_GET['category_id']))
                                     {{ in_array($category->id, $_GET['category_id']) ? 'checked' : '' }}
                                 @endif
@@ -83,11 +83,11 @@
                         @endforeach
                     </ul>
 
-                    <h6 class="mt-3 underline-heading">Level</h6>
-                    
+                    <h6 class="mt-3 underline-heading">Nível</h6>
+
                     <ul class="ul-no-padding">
                         @foreach ($instruction_levels as $instruction_level)
-                        <li> 
+                        <li>
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input filter-results" id="{{ 'ins-level-'.$instruction_level->id }}" name="instruction_level_id[]" value="{{ $instruction_level->id }}"
                                 @if(isset($_GET['instruction_level_id']))
@@ -100,21 +100,21 @@
                         @endforeach
                     </ul>
 
-                    <h6 class="mt-3 underline-heading">Price</h6>
+                    <h6 class="mt-3 underline-heading">Preço</h6>
                     <?php $levels = array(
-                                            '0-0' => 'Free',
-                                            '1-50' => 'Less than USD 50',
-                                            '50-99' => 'USD 50 - USD 99',
-                                            '100-199' => 'USD 100 - USD 199',
-                                            '200-299' => 'USD 200 - USD 299',
-                                            '300-399' => 'USD 300 - USD 399',
-                                            '400-499' => 'USD 400 - USD 499',
-                                            '500' => 'More than USD 500',
+                                            '0-0' => 'GRÁTIS',
+                                            '1-50' => 'Menos que R$ 50',
+                                            '50-99' => 'R$ 50 - R$ 99',
+                                            '100-199' => 'R$ 100 - R$ 199',
+                                            '200-299' => 'R$ 200 - R$ 299',
+                                            '300-399' => 'R$ 300 - R$ 399',
+                                            '400-499' => 'R$ 400 - R$ 499',
+                                            '500' => 'Mais que R$ 500',
                                             );
                     ?>
                     <ul class="ul-no-padding">
                         <?php foreach ($levels as $l_key => $l_value) { ?>
-                        <li> 
+                        <li>
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input filter-results" id="{{ $l_key }}" name="price_id[]" value="{{ $l_key }}"
                                 @if(isset($_GET['price_id']))
@@ -138,12 +138,12 @@
                         <div class="col-xl-2 offset-xl-4 col-lg-2 offset-lg-4 col-md-3 offset-md-3 col-sm-3 offset-sm-3 col-4">
                             <select class="form-control form-control-sm sort-by">
                                 <option value="">Sort By</option>
-                                <option<?php echo(!empty($_GET['sort_price']) && $_GET['sort_price']=='asc')?' selected="selected"':'';?> value="sort_price=asc">Price (Low to High)</option>
-                                <option<?php echo(!empty($_GET['sort_price']) && $_GET['sort_price']=='desc')?' selected="selected"':'';?>  value="sort_price=desc">Price (High to Low)</option>
+                                <option<?php echo(!empty($_GET['sort_price']) && $_GET['sort_price']=='asc')?' selected="selected"':'';?> value="sort_price=asc">Preço (Low to High)</option>
+                                <option<?php echo(!empty($_GET['sort_price']) && $_GET['sort_price']=='desc')?' selected="selected"':'';?>  value="sort_price=desc">Preço (High to Low)</option>
                             </select>
                         </div>
                     </div>
-                    
+
                     <!-- course start -->
                     <div class="row">
                     @foreach($courses as $course)
@@ -153,11 +153,11 @@
                                 <main>
                                     <img src="@if(Storage::exists($course->thumb_image)){{ Storage::url($course->thumb_image) }}@else{{ asset('backend/assets/images/course_detail_thumb.jpg') }}@endif">
                                     <div class="col-md-12"><h6 class="course-title">{{ $course->course_title }}</h6></div>
-                                    
+
                                     <div class="instructor-clist">
                                         <div class="col-md-12">
                                             <i class="fa fa-chalkboard-teacher"></i>&nbsp;
-                                            <span>Created by <b>{{ $course->first_name.' '.$course->last_name }}</b></span>
+                                            <span>Instrutor <b>{{ $course->first_name.' '.$course->last_name }}</b></span>
                                         </div>
                                     </div>
                                 </main>
@@ -176,7 +176,7 @@
                                         </div>
                                     </div>
                                 </footer>
-                            </a>    
+                            </a>
                             </div>
                         </div>
                     @endforeach
@@ -191,7 +191,7 @@
                 <!-- course block end -->
             </div>
         </div>
-        
+
     <!-- content end -->
 @endsection
 

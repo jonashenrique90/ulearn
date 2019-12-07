@@ -6,7 +6,7 @@
     <!-- banner start -->
     <div class="subpage-slide-blue">
         <div class="container">
-            <h1>Course</h1>
+            <h1>{{ $course->course_title }}</h1>
         </div>
     </div>
     <!-- banner end -->
@@ -142,9 +142,9 @@
                                         </span>
                                         <a href="{{ url('course-enroll/'.$course->course_slug.'/'.SiteHelpers::encrypt_decrypt($curriculum_lecture->lecture_quiz_id,true)) }}" class="btn btn-ulearn-preview">
                                         @if($is_completed)
-                                        RESTART
+                                        RESETAR
                                         @else
-                                        START
+                                        INICIAR
                                         @endif
                                         </a>
                                     </article>
@@ -177,7 +177,7 @@
 
                     <div class="cf-pricing">
                         <span>Preço:</span>
-                        <button class="cf-pricing-btn btn">{{ $course->price == '' || $course_price == 0.00 ? 'FREE' : 'PAID' }}</button>
+                        <button class="cf-pricing-btn btn">{{ $course->price == '' || $course_price == 0.00 ? 'Grátis' : 'Pago' }}</button>
                     </div>
 
                     <ul class="list-unstyled cf-pricing-li">
@@ -210,7 +210,7 @@
                 </section>
                 @endif
 
-                <h6 class="mt-4 underline-heading">COURSE CATEGORIES</h6>
+                <h6 class="mt-4 underline-heading">Cursos Categorias</h6>
                 <ul class="ul-no-padding">
                 	@php $categories = SiteHelpers::active_categories(); @endphp
                     @foreach ($categories as $category)

@@ -3,11 +3,11 @@
     <!-- content start -->
     <div class="container-fluid p-0 home-content">
         <!-- banner start -->
-        <div class="subpage-slide-blue">
+        {{-- <div class="subpage-slide-blue">
             <div class="container">
                 <h1>Instructors</h1>
             </div>
-        </div>
+        </div> --}}
         <!-- banner end -->
 
         <!-- breadcrumb start -->
@@ -15,12 +15,12 @@
                 <div class="container">
                   <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Instructors</li>
+                    <li class="breadcrumb-item active" aria-current="page">Instrutores</li>
                   </ol>
                 </div>
             </div>
-        
-        
+
+
         <div class="container mt-5">
             <!-- instructor block start -->
             <article class="instructor-block">
@@ -42,7 +42,7 @@
                         </div>
                     @endforeach
                     </div>
-                    
+
                 </div>
                 <!-- pagination start -->
                 <div class="float-right">
@@ -51,8 +51,8 @@
                 <!-- pagination end -->
             </article>
             <!-- instructor block end -->
-            
+
         </div>
-        
+
     <!-- content end -->
 @endsection

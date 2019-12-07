@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Socialite;
 use App\Models\User;
 use Auth;
+use App\Models\Access;
 
 class LoginController extends Controller
 {
@@ -71,6 +72,15 @@ class LoginController extends Controller
         elseif($user->hasRole('admin')){
             return redirect()->route('admin.dashboard') ;
         }else{
+            // Registrar acesso de usuários com Role students
+            $access = new Access();
+            $access->user_id = $user->id;
+            $access->first_name = $user->first_name;
+            $access->last_name = $user->last_name;
+            $access->email = $user->email;
+            $access->ip = $request->server('REMOTE_ADDR');
+            $access->datetime = date('YmdHis');
+            $access->save();
             return redirect()->route('home') ;
         }
     }
@@ -80,34 +90,34 @@ class LoginController extends Controller
     *
     * @return response
     */
- 
+
     public function socialLogin($social)
     {
         return Socialite::driver($social)->redirect();
     }
- 
+
    /**
     * Obtain the user information from Social Logged in.
     * @param $social
     * @return Response
     */
- 
+
     public function handleProviderCallback($social)
     {
- 
+
         $userSocial = Socialite::driver($social)->user();
         // echo '<pre>';print_r($userSocial);exit;
         $user = User::where(['email' => $userSocial->getEmail()])->first();
- 
+
        if($user){
- 
+
             Auth::login($user);
             return redirect()->action('HomeController@index');
- 
+
        }else{
- 
+
             return view('auth.register',['name' => $userSocial->getName(), 'email' => $userSocial->getEmail()]);
         }
- 
+
    }
 }

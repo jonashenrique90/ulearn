@@ -112,7 +112,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('courses/section/delete', 'CourseController@postSectionDelete');
         Route::post('courses/lecture/save', 'CourseController@postLectureSave');
         Route::post('courses/video', 'CourseController@postVideo');
-        
+
         Route::post('courses/lecturequiz/delete', 'CourseController@postLectureQuizDelete');
         Route::post('courses/lecturedesc/save', 'CourseController@postLectureDescSave');
         Route::post('courses/lecturepublish/save', 'CourseController@postLecturePublishSave');
@@ -126,21 +126,23 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('courses/lecturelib/save', 'CourseController@postLectureLibrarySave');
         Route::post('courses/lecturelibres/save', 'CourseController@postLectureLibraryResourceSave');
         Route::post('courses/lectureexres/save', 'CourseController@postLectureExternalResourceSave');
-        
+
         // Sorting Curriculum
         Route::post('courses/curriculum/sort', 'CourseController@postCurriculumSort');
     });
 
-    
+
     //Functions accessed by only admin users
     Route::group(['middleware' => 'role:admin'], function () {
         Route::get('admin/dashboard', 'Admin\DashboardController')->name('admin.dashboard');
-        
+
         Route::get('admin/users', 'Admin\UserController@index')->name('admin.users');
         Route::get('admin/user-form', 'Admin\UserController@getForm')->name('admin.getForm');
         Route::get('admin/user-form/{user_id}', 'Admin\UserController@getForm');
         Route::post('admin/save-user', 'Admin\UserController@saveUser')->name('admin.saveUser');
         Route::get('admin/users/getData', 'Admin\UserController@getData')->name('admin.users.getData');
+
+        Route::get('admin/accesses', 'Admin\AccessController@index')->name('admin.accesses');
 
         Route::get('admin/categories', 'Admin\CategoryController@index')->name('admin.categories');
         Route::get('admin/category-form', 'Admin\CategoryController@getForm')->name('admin.categoryForm');
@@ -174,5 +176,5 @@ Route::group(['middleware' => 'auth'], function () {
         });
         Route::get('course-learn/{course_slug}', 'CourseController@courseLearn')->name('course.learn');
     });
-    
+
 });

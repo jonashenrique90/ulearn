@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="{{ asset('backend/css/bootstrap-extend.min599c.css?v4.0.2') }}">
   <link rel="stylesheet" href="{{ asset('backend/assets/css/site.min599c.css?v4.0.2') }}">
 
-  
+
 
   <!-- Plugins -->
   <link rel="stylesheet" href="{{ asset('backend/vendor/asscrollable/asScrollable.min599c.css?v4.0.2') }}">
@@ -33,15 +33,15 @@
   <!-- Fonts -->
   <link rel="stylesheet" href="{{ asset('backend/fonts/web-icons/web-icons.min599c.css?v4.0.2') }}">
   <link rel="stylesheet" href="{{ asset('backend/fonts/font-awesome/font-awesome.css?v4.0.2') }}">
-  
+
 
   <link rel="stylesheet" href="{{ asset('backend/vendor/datatables.net-bs4/dataTables.bootstrap4.min599c.css?v4.0.2') }}">
 
   <link rel="stylesheet" href="{{ asset('backend/vendor/croppie/croppie.css?v4.0.2') }}">
-  
+
   <!-- Scripts -->
   <script src="{{ asset('backend/vendor/breakpoints/breakpoints.min599c.js?v4.0.2') }}"></script>
-  
+
   <script>
     Breakpoints();
   </script>
@@ -74,7 +74,7 @@
     <div class="navbar-container container-fluid">
       <!-- Navbar Collapse -->
       <div class="collapse navbar-collapse navbar-collapse-toolbar" id="site-navbar-collapse">
-        
+
         <!-- Navbar Toolbar Right -->
         <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
           <li class="nav-item dropdown">
@@ -88,10 +88,10 @@
             <div class="dropdown-menu" role="menu">
               <a class="dropdown-item" href="{{ url('/') }}" role="menuitem"><i class="icon fas fa-home" aria-hidden="true"></i> Home Page</a>
               <div class="dropdown-divider" role="presentation"></div>
-              <a class="dropdown-item" href="{{ route('logOut') }}" role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Logout</a>
+              <a class="dropdown-item" href="{{ route('logOut') }}" role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Sair</a>
             </div>
           </li>
-          
+
         </ul>
         <!-- End Navbar Toolbar Right -->
       </div>
@@ -121,7 +121,7 @@
         @include('layouts/backend/instructor_sidebar')
     @endif
   </div>
-  
+
 
   <!-- Page -->
   <div class="page">
@@ -140,14 +140,14 @@
   <script src="{{ asset('backend/vendor/jquery-ui/jquery-ui.min599c.js') }}"></script>
   <script src="{{ asset('backend/vendor/popper-js/umd/popper.min599c.js?v4.0.2') }}"></script>
   <script src="{{ asset('backend/vendor/bootstrap/bootstrap.min599c.js?v4.0.2') }}"></script>
-  
+
   <!-- Animation and Scroll -->
-  
+
   <script src="{{ asset('backend/vendor/asscrollbar/jquery-asScrollbar.min599c.js?v4.0.2') }}"></script>
   <script src="{{ asset('backend/vendor/asscrollable/jquery-asScrollable.min599c.js?v4.0.2') }}"></script>
   <script src="{{ asset('backend/vendor/ashoverscroll/jquery-asHoverScroll.min599c.js?v4.0.2') }}"></script>
 
-  
+
   <!-- Scripts -->
   <script src="{{ asset('backend/js/Component.min599c.js?v4.0.2') }}"></script>
   <script src="{{ asset('backend/js/Plugin.min599c.js?v4.0.2') }}"></script>
@@ -159,37 +159,37 @@
   <script src="{{ asset('backend/assets/js/Section/Sidebar.min599c.js?v4.0.2') }}"></script>
 
   <script src="{{ asset('backend/assets/js/Plugin/menu.min599c.js?v4.0.2') }}"></script>
-  
-  
+
+
   <!-- Page -->
   <script src="{{ asset('backend/assets/js/Site.min599c.js?v4.0.2') }}"></script>
 
   <!-- Alertify -->
   <script src="{{ asset('backend/vendor/alertify/alertify599c.js?v4.0.2') }}"></script>
   <script src="{{ asset('backend/js/Plugin/alertify.min599c.js?v4.0.2') }}"></script>
-  
+
   <!-- Toastr -->
   <script src="{{ asset('backend/vendor/toastr/toastr.min599c.js?v4.0.2') }}"></script>
-  
+
   <!-- Datatable -->
   <script src="{{ asset('backend/vendor/datatables.net/jquery.dataTables599c.js?v4.0.2') }}"></script>
   <script src="{{ asset('backend/vendor/datatables.net-bs4/dataTables.bootstrap4599c.js?v4.0.2') }}"></script>
-  
+
   <!-- TagsInput -->
   <script src="{{ asset('backend/js/Plugin/bootstrap-tagsinput.min599c.js?v4.0.2') }}"></script>
 
   <!-- Croppie -->
   <script src="{{ asset('backend/vendor/croppie/croppie.min.js?v4.0.2') }}"></script>
 
-  <!-- jquery validation --> 
+  <!-- jquery validation -->
   <script src="{{ asset('backend/js/Plugin/jquery.validate.js') }}"></script>
 
-  <!-- jquery form --> 
+  <!-- jquery form -->
   <script src="{{ asset('backend/vendor/jquery-form/jquery.form.js?v4.0.2') }}"></script>
 
   <script src="{{ asset('backend/vendor/tinymce/tinymce.min.js?v4.0.2') }}"></script>
 
-  
+
    <script>
    $.ajaxSetup({
        headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
@@ -211,7 +211,7 @@
             event.preventDefault();
             alertify.confirm('Are you sure want to delete this record?', function () {
                 window.location.href = url;
-            }, function () {    
+            }, function () {
                 return false;
             });
         });

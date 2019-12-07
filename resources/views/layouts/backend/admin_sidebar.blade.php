@@ -15,6 +15,12 @@
                 <span class="site-menu-title">Gerenciar Usuários</span>
             </a>
         </li>
+        <li class="site-menu-item {{ request()->is('admin/user*') ? 'active' : '' }}">
+           <a href="{{ route('admin.accesses') }}">
+               <i class="site-menu-icon fa fa-history" aria-hidden="true"></i>
+               <span class="site-menu-title">Lista de Acessos</span>
+           </a>
+       </li>
         <li class="site-menu-item {{ request()->is('admin/categor*') ? 'active' : '' }}">
             <a href="{{ route('admin.categories') }}">
                 <i class="site-menu-icon wb-tag" aria-hidden="true"></i>

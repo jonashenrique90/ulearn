@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use Access;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -43,10 +44,10 @@ class User extends Authenticatable
     public function authorizeRoles($roles)
     {
       if (is_array($roles)) {
-          return $this->hasAnyRole($roles) || 
+          return $this->hasAnyRole($roles) ||
                  abort(401, 'This action is unauthorized.');
       }
-      return $this->hasRole($roles) || 
+      return $this->hasRole($roles) ||
              abort(401, 'This action is unauthorized.');
     }
     /**
@@ -69,6 +70,11 @@ class User extends Authenticatable
     public function RoleUser()
     {
         return $this->hasMany('App\Models\RoleUser', 'user_id', 'id');
+    }
+
+    public function accesses()
+    {
+      return $this->hasMany('App\Models\Access', 'user_id', 'datetime');
     }
 
 }

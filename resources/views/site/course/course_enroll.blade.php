@@ -5,11 +5,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
   <meta name="description" content="Panel Structure">
-  <title>Panel Structure</title>
+  <title>Painel Curso</title>
 </head>
 <body class="animsition site-menubar-unfold" cz-shortcut-listen="true">
 <div id="course-enroll-container">
-    
+
 </div>
 
 </body>
@@ -24,7 +24,7 @@
         $('.page').toggleClass('sidebar-open');
         $('.site-menubar').toggleClass('sidebar-open');
     });
-    
+
  });
 
 var site_url = '{{ url("/") }}';

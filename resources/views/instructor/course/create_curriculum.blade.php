@@ -37,6 +37,7 @@ $course_id = $course->id;
 
           <div class="form-group">
             <form method="POST" action="{{ 'course/updatecourse' }}" accept-charset="UTF-8" class="form-horizontal saveLabel" parsley-validate="" novalidate=" " enctype="multipart/form-data">
+                {{ csrf_field() }}
 
              <input name="course_id" type="hidden" value="{{ $course->id }}">
 

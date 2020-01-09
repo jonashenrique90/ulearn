@@ -10,13 +10,13 @@ return [
 		'paypal' => [
 			'driver'  => 'PayPal_Express',
 			'options' => [
-            'username'  => 'mohamed.yahya-facilitator_api1.emeriocorp.com',
-            'password'  => '3UTMG9XGD989PEB4',
-            'signature' => 'AFcWxV21C7fd0v3bYYYRCpSSRl31AMJw9Q3l-gQhgDEdO9AXYyyt4E0D',
+            'username'  => 'sb-7xfsm783201_api1.business.example.com',
+            'password'  => '6K35WADR55F2W966',
+            'signature' => 'AKXC4bQnuTISIzVHVlufd7p0usA9AxW4pxZl7Tt8R6dnX9NeVRC7iasm',
             'solutionType' => '',
             'landingPage'    => '',
             'headerImageUrl' => '',
-            'brandName' =>  'Your app name',
+            'brandName' =>  'Teste Video',
             'testMode' => true
 			]
 		]
